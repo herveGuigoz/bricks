@@ -13,3 +13,5 @@ bricks:
     path: bricks/freezed
   linter:
     path: bricks/linter
+  permission_handler:
+    path: bricks/permission_handler
