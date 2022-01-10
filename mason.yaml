@@ -15,3 +15,5 @@ bricks:
     path: bricks/linter
   permission_handler:
     path: bricks/permission_handler
+  http:
+    path: bricks/http
