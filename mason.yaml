@@ -11,3 +11,5 @@ bricks:
     path: bricks/widget_clickable
   freezed:
     path: bricks/freezed
+  linter:
+    path: bricks/linter
