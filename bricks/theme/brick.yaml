@@ -1,4 +1,2 @@
 name: theme
-description: A new brick created with the Mason CLI.
-vars:
-  - name
+description: Flutter theme utilities.
