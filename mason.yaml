@@ -1,0 +1,13 @@
+bricks:
+  theme:
+    path: bricks/theme
+  module:
+    path: bricks/module
+  widget_defer_init:
+    path: bricks/widget_defer_init
+  widget_unfocus:
+    path: bricks/widget_unfocus
+  widget_clickable:
+    path: bricks/widget_clickable
+  freezed:
+    path: bricks/freezed
