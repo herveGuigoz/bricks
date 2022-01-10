@@ -6,13 +6,11 @@ typedef ResponsiveLayoutWidgetBuilder = Widget Function(BuildContext, Widget?);
 /// A wrapper around [LayoutBuilder] which exposes builders for
 /// various responsive breakpoints.
 class ResponsiveLayoutBuilder extends StatelessWidget {
-  /// {@macro responsive_layout_builder}
   const ResponsiveLayoutBuilder({
     Key? key,
     required this.phone,
-    required this.laptop,
     this.tablet,
-    this.desktop,
+    required this.laptop,
     this.child,
   }) : super(key: key);
 
@@ -25,9 +23,6 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
   /// [ResponsiveLayoutWidgetBuilder] for laptop layout.
   final ResponsiveLayoutWidgetBuilder laptop;
 
-  /// [ResponsiveLayoutWidgetBuilder] for xLarge layout.
-  final ResponsiveLayoutWidgetBuilder? desktop;
-
   /// Optional child widget which will be passed
   /// to the builders as a way to share/optimize shared layout.
   final Widget? child;
@@ -36,17 +31,19 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth <= Breakpoints.phone) {
+        final screenWidth = MediaQuery.of(context).size.width;
+
+        if (screenWidth <= Breakpoints.phone) {
           return phone(context, child);
         }
-        if (constraints.maxWidth <= Breakpoints.tablet) {
+        if (screenWidth <= Breakpoints.tablet) {
           return (tablet ?? laptop).call(context, child);
         }
-        if (constraints.maxWidth <= Breakpoints.laptop) {
+        if (screenWidth <= Breakpoints.laptop) {
           return laptop(context, child);
         }
 
-        return (desktop ?? laptop).call(context, child);
+        return laptop.call(context, child);
       },
     );
   }

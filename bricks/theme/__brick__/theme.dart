@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 part 'breakpoints.dart';
 part 'colors.dart';
 part 'font_weights.dart';
+part 'responsive_gap.dart';
 part 'responsive_layout_builder.dart';
 part 'theme_data.dart';
 part 'typography.dart';

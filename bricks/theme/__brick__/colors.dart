@@ -5,7 +5,7 @@ part of 'theme.dart';
 class AppColor extends MaterialColor {
   const AppColor(int primary, Map<int, Color> swatch) : super(primary, swatch);
 
-  static const slate = QueezColor(
+  static const slate = AppColor(
     0xFF64748b,
     <int, Color>{
       50: AppColors.slate50,
@@ -21,7 +21,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const gray = QueezColor(
+  static const gray = AppColor(
     0xFF6b7280,
     <int, Color>{
       50: AppColors.gray50,
@@ -37,7 +37,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const zinc = QueezColor(
+  static const zinc = AppColor(
     0xFF71717a,
     <int, Color>{
       50: AppColors.zinc50,
@@ -53,7 +53,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const neutral = QueezColor(
+  static const neutral = AppColor(
     0xFF737373,
     <int, Color>{
       50: AppColors.neutral50,
@@ -69,7 +69,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const stone = QueezColor(
+  static const stone = AppColor(
     0xFF78716c,
     <int, Color>{
       50: AppColors.stone50,
@@ -85,7 +85,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  // static const red = QueezColor(
+  // static const red = AppColor(
   //   0xFFef4444,
   //   <int, Color>{
   //     50: AppColors.red50,
@@ -101,7 +101,7 @@ class AppColor extends MaterialColor {
   //   },
   // );
 
-  static const orange = QueezColor(
+  static const orange = AppColor(
     0xFFf97316,
     <int, Color>{
       50: AppColors.orange50,
@@ -117,7 +117,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const amber = QueezColor(
+  static const amber = AppColor(
     0xFFf59e0b,
     <int, Color>{
       50: AppColors.amber50,
@@ -133,7 +133,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const yellow = QueezColor(
+  static const yellow = AppColor(
     0xFFeab308,
     <int, Color>{
       50: AppColors.yellow50,
@@ -149,7 +149,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const lime = QueezColor(
+  static const lime = AppColor(
     0xFF84cc16,
     <int, Color>{
       50: AppColors.lime50,
@@ -165,7 +165,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  // static const green = QueezColor(
+  // static const green = AppColor(
   //   0xFF22c55e,
   //   <int, Color>{
   //     50: AppColors.green50,
@@ -181,7 +181,7 @@ class AppColor extends MaterialColor {
   //   },
   // );
 
-  static const emerald = QueezColor(
+  static const emerald = AppColor(
     0xFF10b981,
     <int, Color>{
       50: AppColors.emerald50,
@@ -197,7 +197,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const teal = QueezColor(
+  static const teal = AppColor(
     0xFF14b8a6,
     <int, Color>{
       50: AppColors.teal50,
@@ -213,7 +213,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const cyan = QueezColor(
+  static const cyan = AppColor(
     0xFF06b6d4,
     <int, Color>{
       50: AppColors.cyan50,
@@ -229,7 +229,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const sky = QueezColor(
+  static const sky = AppColor(
     0xFF0ea5e9,
     <int, Color>{
       50: AppColors.sky50,
@@ -245,7 +245,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  // static const blue = QueezColor(
+  // static const blue = AppColor(
   //   0xFF3b82f6,
   //   <int, Color>{
   //     50: AppColors.blue50,
@@ -261,7 +261,7 @@ class AppColor extends MaterialColor {
   //   },
   // );
 
-  static const indigo = QueezColor(
+  static const indigo = AppColor(
     0xFF6366f1,
     <int, Color>{
       50: AppColors.indigo50,
@@ -277,7 +277,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const violet = QueezColor(
+  static const violet = AppColor(
     0xFF8b5cf6,
     <int, Color>{
       50: AppColors.violet50,
@@ -293,7 +293,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const purple = QueezColor(
+  static const purple = AppColor(
     0xFFa855f7,
     <int, Color>{
       50: AppColors.purple50,
@@ -309,7 +309,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const fuchsia = QueezColor(
+  static const fuchsia = AppColor(
     0xFFd946ef,
     <int, Color>{
       50: AppColors.fuchsia50,
@@ -325,7 +325,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const pink = QueezColor(
+  static const pink = AppColor(
     0xFFec4899,
     <int, Color>{
       50: AppColors.pink50,
@@ -341,7 +341,7 @@ class AppColor extends MaterialColor {
     },
   );
 
-  static const rose = QueezColor(
+  static const rose = AppColor(
     0xFFf43f5e,
     <int, Color>{
       50: AppColors.rose50,
