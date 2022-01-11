@@ -17,3 +17,5 @@ bricks:
     path: bricks/permission_handler
   http:
     path: bricks/http
+  flutter_package:
+    path: bricks/flutter_package
