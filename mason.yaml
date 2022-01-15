@@ -21,3 +21,7 @@ bricks:
     path: bricks/flutter_package
   lock_mixin:
     path: bricks/lock_mixin
+  widget_split:
+    path: bricks/widget_split
+  semantic_version:
+    path: bricks/semantic_version
