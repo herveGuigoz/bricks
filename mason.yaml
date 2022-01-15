@@ -25,3 +25,5 @@ bricks:
     path: bricks/widget_split
   semantic_version:
     path: bricks/semantic_version
+  result:
+    path: bricks/result
