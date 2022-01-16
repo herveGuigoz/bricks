@@ -1,5 +1,6 @@
 name: flutter_package
 description: Generate a reusable Flutter package.
+version: 1.0.0
 vars:
   - name
   - description

@@ -2,7 +2,7 @@ part of 'http.dart';
 
 final apiClientProvider = Provider<ApiClient>((ref) {
   final configuration = ref.read(configurationProvider);
-  return ApiClient(baseURL: configuration.baseURL)
+  return ApiClient(baseURL: configuration.baseURL);
 });
 
 class ApiClient {

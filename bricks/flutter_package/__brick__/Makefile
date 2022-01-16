@@ -31,7 +31,18 @@ build-appbundle: ## build google play store app bundle
 
 .PHONY: build-ios
 build-ios: ## build ios release
+	rm -rf ios/Pods
+	rm -rf ios/.symlink
+	rm -rf ios/Flutter/Flutter.framework
+	rm -rf ios/Flutter/Flutter.podspec
+	rm -rf ios/Podfile.lock
+	rm pubspec.lock
 	flutter clean
+	flutter packages get
+	cd ios
+	pod install
+	pod update
+	cd ..
 	flutter build ios \
 		--release \
 		--flavor production \

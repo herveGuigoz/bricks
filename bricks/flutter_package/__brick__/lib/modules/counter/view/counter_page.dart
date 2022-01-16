@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:{{#snakeCase}}{{name}}{{/snakeCase}}/counter/counter.dart';
 import 'package:{{#snakeCase}}{{name}}{{/snakeCase}}/l10n/l10n.dart';
+import 'package:{{#snakeCase}}{{name}}{{/snakeCase}}/modules/counter/counter.dart';
 
 class CounterPage extends ConsumerWidget {
   const CounterPage({Key? key}) : super(key: key);
