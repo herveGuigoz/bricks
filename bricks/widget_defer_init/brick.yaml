@@ -1,2 +1,3 @@
 name: widget_defer_init
 description: Defer first frame based on a background service
+version: 1.0.0

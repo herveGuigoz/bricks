@@ -1,2 +1,3 @@
 name: permission_handler
 description: Request permissions service.
+version: 1.0.0
