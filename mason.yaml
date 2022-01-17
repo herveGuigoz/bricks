@@ -27,3 +27,5 @@ bricks:
     path: bricks/semantic_version
   result:
     path: bricks/result
+  inherited_widget:
+    path: bricks/inherited_widget
