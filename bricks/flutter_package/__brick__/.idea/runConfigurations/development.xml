@@ -1,7 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="development" type="FlutterRunConfigurationType" factoryName="Flutter">
-    <option name="dartDefine" value="BASE_URL=https://localhost" />
-    <option name="filePath" value="$PROJECT_DIR$/lib/main_development.dart" />
-    <method v="2" />
-  </configuration>
-</component>

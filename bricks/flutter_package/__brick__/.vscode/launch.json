@@ -5,27 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch development",
+      "name": "Main",
       "request": "launch",
       "type": "dart",
-      "program": "lib/main_development.dart",
-      "args": [
-        "--dart-define",
-        "BASE_URL=https://localhost",
-        "--target",
-        "lib/main_development.dart"
-      ]
-    },
-    {
-      "name": "Launch production",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main_production.dart",
+      "program": "lib/main.dart",
       "args": [
         "--dart-define", 
         "BASE_URL=https://localhost", 
         "--target", 
-        "lib/main_production.dart"
+        "lib/main.dart"
       ]
     }
   ]
