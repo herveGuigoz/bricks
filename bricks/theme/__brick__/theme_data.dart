@@ -2,6 +2,7 @@ part of 'theme.dart';
 
 const _smallTextScaleFactor = 0.80;
 
+@immutable
 class AppThemeData {
   const AppThemeData({
     required this.color,
@@ -21,80 +22,28 @@ class AppThemeData {
         errorColor: AppColors.rose500,
         brightness: brightness,
       ),
-      textTheme: _textTheme,
+      textTheme: typography,
     );
   }
 
   /// `ThemeData` for small screens.
   ThemeData get small {
-    return standard.copyWith(textTheme: _smallTextTheme);
+    return standard.copyWith(
+      textTheme: typography.scale(_smallTextScaleFactor),
+    );
   }
 
   /// `ThemeData` for medium screens.
   ThemeData get medium {
-    return standard.copyWith(textTheme: _smallTextTheme);
-  }
-
-  static TextTheme get _textTheme {
-    return TextTheme(
-      headline1: Typography.headline1,
-      headline2: Typography.headline2,
-      headline3: Typography.headline3,
-      headline4: Typography.headline4,
-      headline5: Typography.headline5,
-      headline6: Typography.headline6,
-      subtitle1: Typography.subtitle1,
-      subtitle2: Typography.subtitle2,
-      bodyText1: Typography.bodyText1,
-      bodyText2: Typography.bodyText2,
-      caption: Typography.caption,
-      overline: Typography.overline,
-      button: Typography.button,
+    return standard.copyWith(
+      textTheme: typography.scale(_smallTextScaleFactor),
     );
   }
 
-  static TextTheme get _smallTextTheme {
-    return TextTheme(
-      headline1: Typography.headline1.copyWith(
-        fontSize: _textTheme.headline1!.fontSize! * _smallTextScaleFactor,
-      ),
-      headline2: Typography.headline2.copyWith(
-        fontSize: _textTheme.headline2!.fontSize! * _smallTextScaleFactor,
-      ),
-      headline3: Typography.headline3.copyWith(
-        fontSize: _textTheme.headline3!.fontSize! * _smallTextScaleFactor,
-      ),
-      headline4: Typography.headline4.copyWith(
-        fontSize: _textTheme.headline4!.fontSize! * _smallTextScaleFactor,
-      ),
-      headline5: Typography.headline5.copyWith(
-        fontSize: _textTheme.headline5!.fontSize! * _smallTextScaleFactor,
-      ),
-      headline6: Typography.headline6.copyWith(
-        fontSize: _textTheme.headline6!.fontSize! * _smallTextScaleFactor,
-      ),
-      subtitle1: Typography.subtitle1.copyWith(
-        fontSize: _textTheme.subtitle1!.fontSize! * _smallTextScaleFactor,
-      ),
-      subtitle2: Typography.subtitle2.copyWith(
-        fontSize: _textTheme.subtitle2!.fontSize! * _smallTextScaleFactor,
-      ),
-      bodyText1: Typography.bodyText1.copyWith(
-        fontSize: _textTheme.bodyText1!.fontSize! * _smallTextScaleFactor,
-      ),
-      bodyText2: Typography.bodyText2.copyWith(
-        fontSize: _textTheme.bodyText2!.fontSize! * _smallTextScaleFactor,
-      ),
-      caption: Typography.caption.copyWith(
-        fontSize: _textTheme.caption!.fontSize! * _smallTextScaleFactor,
-      ),
-      overline: Typography.overline.copyWith(
-        fontSize: _textTheme.overline!.fontSize! * _smallTextScaleFactor,
-      ),
-      button: Typography.button.copyWith(
-        fontSize: _textTheme.button!.fontSize! * _smallTextScaleFactor,
-      ),
-    );
+  Typography get typography {
+    final isDark = brightness == Brightness.dark;
+    final color = isDark ? AppColors.white : AppColors.black;
+    return Typography(color);
   }
 
   @override

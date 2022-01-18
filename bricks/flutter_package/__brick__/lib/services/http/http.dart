@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:{{#snakeCase}}{{name}}{{/snakeCase}}/modules/app/configuration.dart';
 import 'package:http/http.dart';
+import 'package:pedro/modules/app/configuration.dart';
 
 part 'handshake_override.dart';
 part 'http_client.dart';

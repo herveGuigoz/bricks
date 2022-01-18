@@ -16,7 +16,9 @@ class AppTheme extends InheritedWidget {
     required Widget child,
   }) : super(key: key, child: child);
 
-  static const AppThemeData _kFallbackTheme = AppThemeData();
+  static const AppThemeData _kFallbackTheme = AppThemeData(
+    color: AppColor.teal,
+  );
 
   final AppThemeData data;
 

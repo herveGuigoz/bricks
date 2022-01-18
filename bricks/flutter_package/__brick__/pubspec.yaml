@@ -12,6 +12,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_riverpod: ^1.0.3
+  gap: ^2.0.0
   http: ^0.13.4
   intl: ^0.17.0
 
