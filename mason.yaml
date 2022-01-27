@@ -29,3 +29,5 @@ bricks:
     path: bricks/result
   inherited_widget:
     path: bricks/inherited_widget
+  openapi:
+    path: bricks/openapi
