@@ -1,0 +1,9 @@
+name: readme
+description: Create default readme file
+version: 0.1.0+1
+vars:
+  name:
+    type: string
+    description: The application name
+    default: Todo
+    prompt: What is your application name?

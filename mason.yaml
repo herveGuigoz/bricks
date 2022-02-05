@@ -31,3 +31,5 @@ bricks:
     path: bricks/inherited_widget
   openapi:
     path: bricks/openapi
+  readme:
+    path: bricks/readme
