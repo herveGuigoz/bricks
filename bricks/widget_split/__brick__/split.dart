@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_asserts_with_message
+
 import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
@@ -23,12 +25,8 @@ class Split extends StatefulWidget {
   })  : assert(children.length == initialFractions.length),
         super(key: key) {
     _verifyFractionsSumTo1(initialFractions);
-    if (minSizes != null) {
-      assert(minSizes!.length == children.length);
-    }
-    if (splitters != null) {
-      assert(splitters!.length == children.length - 1);
-    }
+    if (minSizes != null) assert(minSizes!.length == children.length);
+    if (splitters != null) assert(splitters!.length == children.length - 1);
   }
 
   /// The main axis the children will lay out on.
@@ -102,15 +100,11 @@ class _SplitState extends State<Split> {
 
     // Size calculation helpers.
     double _minSizeForIndex(int index) {
-      if (widget.minSizes == null) {
-        return 0.0;
-      }
-
-      double totalMinSize = 0;
-      for (var minSize in widget.minSizes!) {
+      if (widget.minSizes == null) return 0;
+      var totalMinSize = 0.0;
+      for (final minSize in widget.minSizes!) {
         totalMinSize += minSize;
       }
-
       // Reduce the min sizes gracefully if the total required min size for all
       // children is greater than the available size for children.
       if (totalMinSize > availableSize) {
@@ -125,20 +119,20 @@ class _SplitState extends State<Split> {
     }
 
     void _clampFraction(int index) {
-      fractions[index] =
-          fractions[index].clamp(_minFractionForIndex(index), 1.0);
+      final fraction = fractions[index];
+      fractions[index] = fraction.clamp(_minFractionForIndex(index), 1.0);
     }
 
     double _sizeForIndex(int index) => availableSize * fractions[index];
 
-    double fractionDeltaRequired = 0.0;
-    double fractionDeltaAvailable = 0.0;
+    var fractionDeltaRequired = 0.0;
+    var fractionDeltaAvailable = 0.0;
 
     double deltaFromMinimumSize(int index) {
       return fractions[index] - _minFractionForIndex(index);
     }
 
-    for (int i = 0; i < fractions.length; ++i) {
+    for (var i = 0; i < fractions.length; ++i) {
       final delta = deltaFromMinimumSize(i);
       if (delta < 0) {
         fractionDeltaRequired -= delta;
@@ -152,10 +146,10 @@ class _SplitState extends State<Split> {
       // The min size constraints for children are scaled so it is always
       // possible to meet them. A scaleFactor greater than 1 would indicate that
       // it is impossible to meet the constraints.
-      double scaleFactor = fractionDeltaRequired / fractionDeltaAvailable;
+      var scaleFactor = fractionDeltaRequired / fractionDeltaAvailable;
       assert(scaleFactor <= 1 + defaultEpsilon);
-      scaleFactor = math.min(scaleFactor, 1.0);
-      for (int i = 0; i < fractions.length; ++i) {
+      scaleFactor = math.min(scaleFactor, 1);
+      for (var i = 0; i < fractions.length; ++i) {
         final delta = deltaFromMinimumSize(i);
         if (delta < 0) {
           // This is equivalent to adding delta but avoids rounding error.
@@ -171,15 +165,16 @@ class _SplitState extends State<Split> {
 
     // Determine what fraction to give each child, including enough space to
     // display the divider.
-    final sizes = List.generate(fractions.length, (i) => _sizeForIndex(i));
+    final sizes = List.generate(fractions.length, _sizeForIndex);
 
     void updateSpacing(DragUpdateDetails dragDetails, int splitterIndex) {
-      final dragDelta =
-          isHorizontal ? dragDetails.delta.dx : dragDetails.delta.dy;
+      final delta = dragDetails.delta;
+      final dragDelta = isHorizontal ? delta.dx : delta.dy;
       final fractionalDelta = dragDelta / axisSize;
 
       // Returns the actual delta applied to elements before the splitter.
-      double updateSpacingBeforeSplitterIndex(double delta) {
+      double updateSpacingBeforeSplitterIndex(double value) {
+        var delta = value;
         final startingDelta = delta;
         var index = splitterIndex;
         while (index >= 0) {
@@ -200,7 +195,8 @@ class _SplitState extends State<Split> {
       }
 
       // Returns the actual delta applied to elements after the splitter.
-      double updateSpacingAfterSplitterIndex(double delta) {
+      double updateSpacingAfterSplitterIndex(double value) {
+        var delta = value;
         final startingDelta = delta;
         var index = splitterIndex + 1;
         while (index < fractions.length) {
@@ -225,12 +221,14 @@ class _SplitState extends State<Split> {
         // the shrinking children first so that we do not over-increase the size
         // of the growing children and cause layout overflow errors.
         if (fractionalDelta <= 0.0) {
-          final appliedDelta =
-              updateSpacingBeforeSplitterIndex(fractionalDelta);
+          final appliedDelta = updateSpacingBeforeSplitterIndex(
+            fractionalDelta,
+          );
           updateSpacingAfterSplitterIndex(-appliedDelta);
         } else {
-          final appliedDelta =
-              updateSpacingAfterSplitterIndex(-fractionalDelta);
+          final appliedDelta = updateSpacingAfterSplitterIndex(
+            -fractionalDelta,
+          );
           updateSpacingBeforeSplitterIndex(-appliedDelta);
         }
       });
@@ -238,7 +236,7 @@ class _SplitState extends State<Split> {
     }
 
     final children = <Widget>[];
-    for (int i = 0; i < widget.children.length; i++) {
+    for (var i = 0; i < widget.children.length; i++) {
       children.addAll([
         SizedBox(
           width: isHorizontal ? sizes[i] : width,
@@ -253,13 +251,16 @@ class _SplitState extends State<Split> {
             child: GestureDetector(
               key: widget.dividerKey(i),
               behavior: HitTestBehavior.translucent,
-              onHorizontalDragUpdate: (details) =>
-                  isHorizontal ? updateSpacing(details, i) : null,
-              onVerticalDragUpdate: (details) =>
-                  isHorizontal ? null : updateSpacing(details, i),
-              // DartStartBehavior.down is needed to keep the mouse pointer stuck to
-              // the drag bar. There still appears to be a few frame lag before the
-              // drag action triggers which is't ideal but isn't a launch blocker.
+              onHorizontalDragUpdate: (details) {
+                if (isHorizontal) updateSpacing(details, i);
+              },
+              onVerticalDragUpdate: (details) {
+                if (!isHorizontal) updateSpacing(details, i);
+              },
+              // DartStartBehavior.down is needed to keep the mouse pointer
+              // stuck to the drag bar. There still appears to be a few frame
+              // lag before the drag action triggers which is't ideal but isn't
+              // a launch blocker.
               dragStartBehavior: DragStartBehavior.down,
               child: widget.splitters != null
                   ? widget.splitters![i]
@@ -270,8 +271,8 @@ class _SplitState extends State<Split> {
     }
     return Flex(
       direction: widget.axis,
-      children: children,
       crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: children,
     );
   }
 
@@ -283,7 +284,7 @@ class _SplitState extends State<Split> {
     }
 
     var totalSize = 0.0;
-    for (var splitter in widget.splitters!) {
+    for (final splitter in widget.splitters!) {
       totalSize += isHorizontal
           ? splitter.preferredSize.width
           : splitter.preferredSize.height;
@@ -294,10 +295,13 @@ class _SplitState extends State<Split> {
 }
 
 class DefaultSplitter extends StatelessWidget {
-  const DefaultSplitter({required this.isHorizontal});
+  const DefaultSplitter({
+    Key? key,
+    required this.isHorizontal,
+  }) : super(key: key);
 
-  static const double iconSize = 24.0;
-  static const double splitterWidth = 12.0;
+  static const double iconSize = 24;
+  static const double splitterWidth = 12;
 
   final bool isHorizontal;
 
@@ -320,7 +324,7 @@ class DefaultSplitter extends StatelessWidget {
 
 void _verifyFractionsSumTo1(List<double> fractions) {
   var sumFractions = 0.0;
-  for (var fraction in fractions) {
+  for (final fraction in fractions) {
     sumFractions += fraction;
   }
   assert(
@@ -335,3 +339,129 @@ const defaultEpsilon = 1 / 1000;
 
 // Method to convert degrees to radians
 num degToRad(num deg) => deg * (math.pi / 180.0);
+
+class FlexSplitColumn extends StatelessWidget {
+  FlexSplitColumn({
+    Key? key,
+    required this.totalHeight,
+    required this.headers,
+    required List<Widget> children,
+    required List<double> initialFractions,
+    List<double> minSizes = const [],
+  })  : assert(children.isNotEmpty && children.length >= 2),
+        assert(initialFractions.isNotEmpty && initialFractions.length >= 2),
+        assert(children.length == initialFractions.length),
+        _children = buildChildrenWithFirstHeader(children, headers),
+        _initialFractions = modifyInitialFractionsToIncludeFirstHeader(
+          initialFractions,
+          headers,
+          totalHeight,
+        ),
+        _minSizes = modifyMinSizesToIncludeFirstHeader(minSizes, headers),
+        super(key: key) {
+    if (minSizes.isNotEmpty) assert(minSizes.length == children.length);
+  }
+
+  /// The headers that will be laid out above each corresponding child in
+  /// children.
+  ///
+  /// All headers but the first will be passed into [Split.splitters] when
+  /// creating the [Split] widget in `build`. Instead of being passed into
+  /// [Split.splitters], it will be combined with the first child in children
+  /// to create the first child we will pass into [Split.children].
+  ///
+  /// We do this because the first header will not actually be a splitter as
+  /// there is not any content above it for it to split.
+  ///
+  /// We modify other values [_children], [_initialFractions], and [_minSizes]
+  /// from children, initialFractions, and minSizes, respectively, to
+  /// account for the first header. We do this adjustment here so that the
+  /// creators of [FlexSplitColumn] can be unaware of the under-the-hood
+  /// calculations necessary to achieve the UI requirements specified by
+  /// initialFractions and minSizes.
+  final List<PreferredSizeWidget> headers;
+
+  /// The children that will be laid out below each corresponding header in
+  /// [headers].
+  ///
+  /// All children except the first will be passed into [Split.children]
+  /// unmodified. We need to modify the first child from children to account
+  /// for the first header (see above).
+  final List<Widget> _children;
+
+  /// The fraction of the layout to allocate to each child in children.
+  ///
+  /// We need to modify the values given by initialFractions to account for
+  /// the first header (see above).
+  final List<double> _initialFractions;
+
+  /// The minimum size each child is allowed to be.
+  ///
+  /// We need to modify the values given by minSizes to account for the first
+  /// header (see above).
+  final List<double> _minSizes;
+
+  /// The total height of the column, including all [headers] and children.
+  final double totalHeight;
+
+  @visibleForTesting
+  static List<Widget> buildChildrenWithFirstHeader(
+    List<Widget> children,
+    List<PreferredSizeWidget> headers,
+  ) {
+    return [
+      Column(
+        children: [headers[0], Expanded(child: children[0])],
+      ),
+      ...children.sublist(1),
+    ];
+  }
+
+  @visibleForTesting
+  static List<double> modifyInitialFractionsToIncludeFirstHeader(
+    List<double> initialFractions,
+    List<PreferredSizeWidget> headers,
+    double totalHeight,
+  ) {
+    var totalHeaderHeight = 0.0;
+    for (final header in headers) {
+      totalHeaderHeight += header.preferredSize.height;
+    }
+    final intendedContentHeight = totalHeight - totalHeaderHeight;
+    final intendedChildHeights = List<double>.generate(
+      initialFractions.length,
+      (i) => intendedContentHeight * initialFractions[i],
+    );
+    final trueContentHeight =
+        intendedContentHeight + headers[0].preferredSize.height;
+    return List<double>.generate(initialFractions.length, (i) {
+      if (i == 0) {
+        return (intendedChildHeights[i] + headers[0].preferredSize.height) /
+            trueContentHeight;
+      }
+      return intendedChildHeights[i] / trueContentHeight;
+    });
+  }
+
+  @visibleForTesting
+  static List<double> modifyMinSizesToIncludeFirstHeader(
+    List<double> minSizes,
+    List<PreferredSizeWidget> headers,
+  ) {
+    return [
+      minSizes[0] + headers[0].preferredSize.height,
+      ...minSizes.sublist(1),
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Split(
+      axis: Axis.vertical,
+      initialFractions: _initialFractions,
+      minSizes: _minSizes,
+      splitters: headers.sublist(1),
+      children: _children,
+    );
+  }
+}
