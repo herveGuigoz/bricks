@@ -33,3 +33,5 @@ bricks:
     path: bricks/openapi
   readme:
     path: bricks/readme
+  animations:
+    path: bricks/animations
