@@ -1,26 +1,36 @@
 part of 'http.dart';
 
 abstract class Header {
-  const Header(this.key, this.value);
+  factory Header.acceptJson() = AcceptJson;
+  factory Header.jsonContentType() = JsonContentType;
+  factory Header.bearer(String jwt) = Bearer;
 
   static Map<String, String> merge(List<Header> values) {
-    return {for (var v in values) v.key: v.value};
+    return values.fold({}, (map, header) => map..addAll(header.toMap()));
   }
 
-  final String key;
-  final String value;
-
-  Map<String, String> toMap() => {key: value};
+  Map<String, String> toMap();
 }
 
-class JsonContentType extends Header {
-  const JsonContentType() : super('Content-Type', 'application/json');
+class JsonContentType implements Header {
+  const JsonContentType();
+
+  @override
+  Map<String, String> toMap() => {'Content-Type': 'application/json'};
 }
 
-class AcceptJson extends Header {
-  const AcceptJson() : super('Accept', 'application/json');
+class AcceptJson implements Header {
+  const AcceptJson();
+
+  @override
+  Map<String, String> toMap() => {'Accept': 'application/json'};
 }
 
-class Bearer extends Header {
-  const Bearer(String value) : super('Authorization', 'Bearer $value');
+class Bearer implements Header {
+  const Bearer(this.jwt);
+
+  final String jwt;
+
+  @override
+  Map<String, String> toMap() => {'Authorization': 'Bearer $jwt'};
 }
