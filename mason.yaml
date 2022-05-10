@@ -1,4 +1,6 @@
 bricks:
+  appwrite:
+    path: bricks/appwrite
   theme:
     path: bricks/theme
   module:

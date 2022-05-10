@@ -1,1 +1,21 @@
-{"theme":"/Users/herveguigoz/Dev/bricks/bricks/theme","module":"/Users/herveguigoz/Dev/bricks/bricks/module","widget_defer_init":"/Users/herveguigoz/Dev/bricks/bricks/widget_defer_init","widget_unfocus":"/Users/herveguigoz/Dev/bricks/bricks/widget_unfocus","widget_clickable":"/Users/herveguigoz/Dev/bricks/bricks/widget_clickable","freezed":"/Users/herveguigoz/Dev/bricks/bricks/freezed","linter":"/Users/herveguigoz/Dev/bricks/bricks/linter","permission_handler":"/Users/herveguigoz/Dev/bricks/bricks/permission_handler","http":"/Users/herveguigoz/Dev/bricks/bricks/http","flutter_package":"/Users/herveguigoz/Dev/bricks/bricks/flutter_package","lock_mixin":"/Users/herveguigoz/Dev/bricks/bricks/lock_mixin","widget_split":"/Users/herveguigoz/Dev/bricks/bricks/widget_split","semantic_version":"/Users/herveguigoz/Dev/bricks/bricks/semantic_version","result":"/Users/herveguigoz/Dev/bricks/bricks/result","inherited_widget":"/Users/herveguigoz/Dev/bricks/bricks/inherited_widget","openapi":"/Users/herveguigoz/Dev/bricks/bricks/openapi","readme":"/Users/herveguigoz/Dev/bricks/bricks/readme","animations":"/Users/herveguigoz/Dev/bricks/bricks/animations"}
+{
+    "appwrite": "/Users/herveguigoz/Dev/packages/bricks/bricks/appwrite",
+    "theme": "/Users/herveguigoz/Dev/packages/bricks/bricks/theme",
+    "module": "/Users/herveguigoz/Dev/packages/bricks/bricks/module",
+    "widget_defer_init": "/Users/herveguigoz/Dev/packages/bricks/bricks/widget_defer_init",
+    "widget_unfocus": "/Users/herveguigoz/Dev/packages/bricks/bricks/widget_unfocus",
+    "widget_clickable": "/Users/herveguigoz/Dev/packages/bricks/bricks/widget_clickable",
+    "freezed": "/Users/herveguigoz/Dev/packages/bricks/bricks/freezed",
+    "linter": "/Users/herveguigoz/Dev/packages/bricks/bricks/linter",
+    "permission_handler": "/Users/herveguigoz/Dev/packages/bricks/bricks/permission_handler",
+    "http": "/Users/herveguigoz/Dev/packages/bricks/bricks/http",
+    "flutter_package": "/Users/herveguigoz/Dev/packages/bricks/bricks/flutter_package",
+    "lock_mixin": "/Users/herveguigoz/Dev/packages/bricks/bricks/lock_mixin",
+    "widget_split": "/Users/herveguigoz/Dev/packages/bricks/bricks/widget_split",
+    "semantic_version": "/Users/herveguigoz/Dev/packages/bricks/bricks/semantic_version",
+    "result": "/Users/herveguigoz/Dev/packages/bricks/bricks/result",
+    "inherited_widget": "/Users/herveguigoz/Dev/packages/bricks/bricks/inherited_widget",
+    "openapi": "/Users/herveguigoz/Dev/packages/bricks/bricks/openapi",
+    "readme": "/Users/herveguigoz/Dev/packages/bricks/bricks/readme",
+    "animations": "/Users/herveguigoz/Dev/packages/bricks/bricks/animations"
+}
