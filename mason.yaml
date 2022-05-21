@@ -19,8 +19,6 @@ bricks:
     path: bricks/permission_handler
   http:
     path: bricks/http
-  flutter_package:
-    path: bricks/flutter_package
   lock_mixin:
     path: bricks/lock_mixin
   widget_split:

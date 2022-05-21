@@ -1,0 +1,12 @@
+name: application
+description: Generate a reusable Flutter application.
+version: 1.0.0
+vars:
+  name:
+    type: string
+    description: The application name
+    prompt: What is the application name?
+  description:
+    type: string
+    description: Short description for this application
+    default: New Flutter application
