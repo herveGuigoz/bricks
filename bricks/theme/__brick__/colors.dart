@@ -2,363 +2,332 @@ part of 'theme.dart';
 
 /// From tailwindcss default color palette
 /// https://tailwindcss.com/docs/customizing-colors
-class AppColor extends MaterialColor {
-  const AppColor(int primary, Map<int, Color> swatch) : super(primary, swatch);
+class Palette extends MaterialColor {
+  const Palette(super.primary, super.swatch);
 
-  static const slate = AppColor(
-    0xFF64748b,
-    <int, Color>{
-      50: AppColors.slate50,
-      100: AppColors.slate100,
-      200: AppColors.slate200,
-      300: AppColors.slate300,
-      400: AppColors.slate400,
-      500: AppColors.slate500,
-      600: AppColors.slate600,
-      700: AppColors.slate700,
-      800: AppColors.slate800,
-      900: AppColors.slate900,
-    },
-  );
+  const Palette.gray()
+      : super(
+          0xFF6b7280,
+          const {
+            50: Palette.gray50,
+            100: Palette.gray100,
+            200: Palette.gray200,
+            300: Palette.gray300,
+            400: Palette.gray400,
+            500: Palette.gray500,
+            600: Palette.gray600,
+            700: Palette.gray700,
+            800: Palette.gray800,
+            900: Palette.gray900,
+          },
+        );
 
-  static const gray = AppColor(
-    0xFF6b7280,
-    <int, Color>{
-      50: AppColors.gray50,
-      100: AppColors.gray100,
-      200: AppColors.gray200,
-      300: AppColors.gray300,
-      400: AppColors.gray400,
-      500: AppColors.gray500,
-      600: AppColors.gray600,
-      700: AppColors.gray700,
-      800: AppColors.gray800,
-      900: AppColors.gray900,
-    },
-  );
+  const Palette.slate()
+      : super(
+          0xFF64748b,
+          const <int, Color>{
+            50: Palette.slate50,
+            100: Palette.slate100,
+            200: Palette.slate200,
+            300: Palette.slate300,
+            400: Palette.slate400,
+            500: Palette.slate500,
+            600: Palette.slate600,
+            700: Palette.slate700,
+            800: Palette.slate800,
+            900: Palette.slate900,
+          },
+        );
 
-  static const zinc = AppColor(
-    0xFF71717a,
-    <int, Color>{
-      50: AppColors.zinc50,
-      100: AppColors.zinc100,
-      200: AppColors.zinc200,
-      300: AppColors.zinc300,
-      400: AppColors.zinc400,
-      500: AppColors.zinc500,
-      600: AppColors.zinc600,
-      700: AppColors.zinc700,
-      800: AppColors.zinc800,
-      900: AppColors.zinc900,
-    },
-  );
+  const Palette.zinc()
+      : super(
+          0xFF71717a,
+          const <int, Color>{
+            50: Palette.zinc50,
+            100: Palette.zinc100,
+            200: Palette.zinc200,
+            300: Palette.zinc300,
+            400: Palette.zinc400,
+            500: Palette.zinc500,
+            600: Palette.zinc600,
+            700: Palette.zinc700,
+            800: Palette.zinc800,
+            900: Palette.zinc900,
+          },
+        );
 
-  static const neutral = AppColor(
-    0xFF737373,
-    <int, Color>{
-      50: AppColors.neutral50,
-      100: AppColors.neutral100,
-      200: AppColors.neutral200,
-      300: AppColors.neutral300,
-      400: AppColors.neutral400,
-      500: AppColors.neutral500,
-      600: AppColors.neutral600,
-      700: AppColors.neutral700,
-      800: AppColors.neutral800,
-      900: AppColors.neutral900,
-    },
-  );
+  const Palette.neutral()
+      : super(
+          0xFF737373,
+          const <int, Color>{
+            50: Palette.neutral50,
+            100: Palette.neutral100,
+            200: Palette.neutral200,
+            300: Palette.neutral300,
+            400: Palette.neutral400,
+            500: Palette.neutral500,
+            600: Palette.neutral600,
+            700: Palette.neutral700,
+            800: Palette.neutral800,
+            900: Palette.neutral900,
+          },
+        );
 
-  static const stone = AppColor(
-    0xFF78716c,
-    <int, Color>{
-      50: AppColors.stone50,
-      100: AppColors.stone100,
-      200: AppColors.stone200,
-      300: AppColors.stone300,
-      400: AppColors.stone400,
-      500: AppColors.stone500,
-      600: AppColors.stone600,
-      700: AppColors.stone700,
-      800: AppColors.stone800,
-      900: AppColors.stone900,
-    },
-  );
+  const Palette.stone()
+      : super(
+          0xFF78716c,
+          const <int, Color>{
+            50: Palette.stone50,
+            100: Palette.stone100,
+            200: Palette.stone200,
+            300: Palette.stone300,
+            400: Palette.stone400,
+            500: Palette.stone500,
+            600: Palette.stone600,
+            700: Palette.stone700,
+            800: Palette.stone800,
+            900: Palette.stone900,
+          },
+        );
 
-  // static const red = AppColor(
-  //   0xFFef4444,
-  //   <int, Color>{
-  //     50: AppColors.red50,
-  //     100: AppColors.red100,
-  //     200: AppColors.red200,
-  //     300: AppColors.red300,
-  //     400: AppColors.red400,
-  //     500: AppColors.red500,
-  //     600: AppColors.red600,
-  //     700: AppColors.red700,
-  //     800: AppColors.red800,
-  //     900: AppColors.red900,
-  //   },
-  // );
+  const Palette.orange()
+      : super(
+          0xFFf97316,
+          const <int, Color>{
+            50: Palette.orange50,
+            100: Palette.orange100,
+            200: Palette.orange200,
+            300: Palette.orange300,
+            400: Palette.orange400,
+            500: Palette.orange500,
+            600: Palette.orange600,
+            700: Palette.orange700,
+            800: Palette.orange800,
+            900: Palette.orange900,
+          },
+        );
 
-  static const orange = AppColor(
-    0xFFf97316,
-    <int, Color>{
-      50: AppColors.orange50,
-      100: AppColors.orange100,
-      200: AppColors.orange200,
-      300: AppColors.orange300,
-      400: AppColors.orange400,
-      500: AppColors.orange500,
-      600: AppColors.orange600,
-      700: AppColors.orange700,
-      800: AppColors.orange800,
-      900: AppColors.orange900,
-    },
-  );
+  const Palette.amber()
+      : super(
+          0xFFf59e0b,
+          const <int, Color>{
+            50: Palette.amber50,
+            100: Palette.amber100,
+            200: Palette.amber200,
+            300: Palette.amber300,
+            400: Palette.amber400,
+            500: Palette.amber500,
+            600: Palette.amber600,
+            700: Palette.amber700,
+            800: Palette.amber800,
+            900: Palette.amber900,
+          },
+        );
 
-  static const amber = AppColor(
-    0xFFf59e0b,
-    <int, Color>{
-      50: AppColors.amber50,
-      100: AppColors.amber100,
-      200: AppColors.amber200,
-      300: AppColors.amber300,
-      400: AppColors.amber400,
-      500: AppColors.amber500,
-      600: AppColors.amber600,
-      700: AppColors.amber700,
-      800: AppColors.amber800,
-      900: AppColors.amber900,
-    },
-  );
+  const Palette.yellow()
+      : super(
+          0xFFeab308,
+          const <int, Color>{
+            50: Palette.yellow50,
+            100: Palette.yellow100,
+            200: Palette.yellow200,
+            300: Palette.yellow300,
+            400: Palette.yellow400,
+            500: Palette.yellow500,
+            600: Palette.yellow600,
+            700: Palette.yellow700,
+            800: Palette.yellow800,
+            900: Palette.yellow900,
+          },
+        );
 
-  static const yellow = AppColor(
-    0xFFeab308,
-    <int, Color>{
-      50: AppColors.yellow50,
-      100: AppColors.yellow100,
-      200: AppColors.yellow200,
-      300: AppColors.yellow300,
-      400: AppColors.yellow400,
-      500: AppColors.yellow500,
-      600: AppColors.yellow600,
-      700: AppColors.yellow700,
-      800: AppColors.yellow800,
-      900: AppColors.yellow900,
-    },
-  );
+  const Palette.lime()
+      : super(
+          0xFF84cc16,
+          const <int, Color>{
+            50: Palette.lime50,
+            100: Palette.lime100,
+            200: Palette.lime200,
+            300: Palette.lime300,
+            400: Palette.lime400,
+            500: Palette.lime500,
+            600: Palette.lime600,
+            700: Palette.lime700,
+            800: Palette.lime800,
+            900: Palette.lime900,
+          },
+        );
 
-  static const lime = AppColor(
-    0xFF84cc16,
-    <int, Color>{
-      50: AppColors.lime50,
-      100: AppColors.lime100,
-      200: AppColors.lime200,
-      300: AppColors.lime300,
-      400: AppColors.lime400,
-      500: AppColors.lime500,
-      600: AppColors.lime600,
-      700: AppColors.lime700,
-      800: AppColors.lime800,
-      900: AppColors.lime900,
-    },
-  );
+  const Palette.emerald()
+      : super(
+          0xFF10b981,
+          const <int, Color>{
+            50: Palette.emerald50,
+            100: Palette.emerald100,
+            200: Palette.emerald200,
+            300: Palette.emerald300,
+            400: Palette.emerald400,
+            500: Palette.emerald500,
+            600: Palette.emerald600,
+            700: Palette.emerald700,
+            800: Palette.emerald800,
+            900: Palette.emerald900,
+          },
+        );
 
-  // static const green = AppColor(
-  //   0xFF22c55e,
-  //   <int, Color>{
-  //     50: AppColors.green50,
-  //     100: AppColors.green100,
-  //     200: AppColors.green200,
-  //     300: AppColors.green300,
-  //     400: AppColors.green400,
-  //     500: AppColors.green500,
-  //     600: AppColors.green600,
-  //     700: AppColors.green700,
-  //     800: AppColors.green800,
-  //     900: AppColors.green900,
-  //   },
-  // );
+  const Palette.teal()
+      : super(
+          0xFF14b8a6,
+          const <int, Color>{
+            50: Palette.teal50,
+            100: Palette.teal100,
+            200: Palette.teal200,
+            300: Palette.teal300,
+            400: Palette.teal400,
+            500: Palette.teal500,
+            600: Palette.teal600,
+            700: Palette.teal700,
+            800: Palette.teal800,
+            900: Palette.teal900,
+          },
+        );
 
-  static const emerald = AppColor(
-    0xFF10b981,
-    <int, Color>{
-      50: AppColors.emerald50,
-      100: AppColors.emerald100,
-      200: AppColors.emerald200,
-      300: AppColors.emerald300,
-      400: AppColors.emerald400,
-      500: AppColors.emerald500,
-      600: AppColors.emerald600,
-      700: AppColors.emerald700,
-      800: AppColors.emerald800,
-      900: AppColors.emerald900,
-    },
-  );
+  const Palette.cyan()
+      : super(
+          0xFF06b6d4,
+          const <int, Color>{
+            50: Palette.cyan50,
+            100: Palette.cyan100,
+            200: Palette.cyan200,
+            300: Palette.cyan300,
+            400: Palette.cyan400,
+            500: Palette.cyan500,
+            600: Palette.cyan600,
+            700: Palette.cyan700,
+            800: Palette.cyan800,
+            900: Palette.cyan900,
+          },
+        );
 
-  static const teal = AppColor(
-    0xFF14b8a6,
-    <int, Color>{
-      50: AppColors.teal50,
-      100: AppColors.teal100,
-      200: AppColors.teal200,
-      300: AppColors.teal300,
-      400: AppColors.teal400,
-      500: AppColors.teal500,
-      600: AppColors.teal600,
-      700: AppColors.teal700,
-      800: AppColors.teal800,
-      900: AppColors.teal900,
-    },
-  );
+  const Palette.sky()
+      : super(
+          0xFF0ea5e9,
+          const <int, Color>{
+            50: Palette.sky50,
+            100: Palette.sky100,
+            200: Palette.sky200,
+            300: Palette.sky300,
+            400: Palette.sky400,
+            500: Palette.sky500,
+            600: Palette.sky600,
+            700: Palette.sky700,
+            800: Palette.sky800,
+            900: Palette.sky900,
+          },
+        );
 
-  static const cyan = AppColor(
-    0xFF06b6d4,
-    <int, Color>{
-      50: AppColors.cyan50,
-      100: AppColors.cyan100,
-      200: AppColors.cyan200,
-      300: AppColors.cyan300,
-      400: AppColors.cyan400,
-      500: AppColors.cyan500,
-      600: AppColors.cyan600,
-      700: AppColors.cyan700,
-      800: AppColors.cyan800,
-      900: AppColors.cyan900,
-    },
-  );
+  const Palette.indigo()
+      : super(
+          0xFF6366f1,
+          const <int, Color>{
+            50: Palette.indigo50,
+            100: Palette.indigo100,
+            200: Palette.indigo200,
+            300: Palette.indigo300,
+            400: Palette.indigo400,
+            500: Palette.indigo500,
+            600: Palette.indigo600,
+            700: Palette.indigo700,
+            800: Palette.indigo800,
+            900: Palette.indigo900,
+          },
+        );
 
-  static const sky = AppColor(
-    0xFF0ea5e9,
-    <int, Color>{
-      50: AppColors.sky50,
-      100: AppColors.sky100,
-      200: AppColors.sky200,
-      300: AppColors.sky300,
-      400: AppColors.sky400,
-      500: AppColors.sky500,
-      600: AppColors.sky600,
-      700: AppColors.sky700,
-      800: AppColors.sky800,
-      900: AppColors.sky900,
-    },
-  );
+  const Palette.violet()
+      : super(
+          0xFF8b5cf6,
+          const <int, Color>{
+            50: Palette.violet50,
+            100: Palette.violet100,
+            200: Palette.violet200,
+            300: Palette.violet300,
+            400: Palette.violet400,
+            500: Palette.violet500,
+            600: Palette.violet600,
+            700: Palette.violet700,
+            800: Palette.violet800,
+            900: Palette.violet900,
+          },
+        );
 
-  // static const blue = AppColor(
-  //   0xFF3b82f6,
-  //   <int, Color>{
-  //     50: AppColors.blue50,
-  //     100: AppColors.blue100,
-  //     200: AppColors.blue200,
-  //     300: AppColors.blue300,
-  //     400: AppColors.blue400,
-  //     500: AppColors.blue500,
-  //     600: AppColors.blue600,
-  //     700: AppColors.blue700,
-  //     800: AppColors.blue800,
-  //     900: AppColors.blue900,
-  //   },
-  // );
+  const Palette.purple()
+      : super(
+          0xFFa855f7,
+          const <int, Color>{
+            50: Palette.purple50,
+            100: Palette.purple100,
+            200: Palette.purple200,
+            300: Palette.purple300,
+            400: Palette.purple400,
+            500: Palette.purple500,
+            600: Palette.purple600,
+            700: Palette.purple700,
+            800: Palette.purple800,
+            900: Palette.purple900,
+          },
+        );
 
-  static const indigo = AppColor(
-    0xFF6366f1,
-    <int, Color>{
-      50: AppColors.indigo50,
-      100: AppColors.indigo100,
-      200: AppColors.indigo200,
-      300: AppColors.indigo300,
-      400: AppColors.indigo400,
-      500: AppColors.indigo500,
-      600: AppColors.indigo600,
-      700: AppColors.indigo700,
-      800: AppColors.indigo800,
-      900: AppColors.indigo900,
-    },
-  );
+  const Palette.fuchsia()
+      : super(
+          0xFFd946ef,
+          const <int, Color>{
+            50: Palette.fuchsia50,
+            100: Palette.fuchsia100,
+            200: Palette.fuchsia200,
+            300: Palette.fuchsia300,
+            400: Palette.fuchsia400,
+            500: Palette.fuchsia500,
+            600: Palette.fuchsia600,
+            700: Palette.fuchsia700,
+            800: Palette.fuchsia800,
+            900: Palette.fuchsia900,
+          },
+        );
 
-  static const violet = AppColor(
-    0xFF8b5cf6,
-    <int, Color>{
-      50: AppColors.violet50,
-      100: AppColors.violet100,
-      200: AppColors.violet200,
-      300: AppColors.violet300,
-      400: AppColors.violet400,
-      500: AppColors.violet500,
-      600: AppColors.violet600,
-      700: AppColors.violet700,
-      800: AppColors.violet800,
-      900: AppColors.violet900,
-    },
-  );
+  const Palette.pink()
+      : super(
+          0xFFec4899,
+          const <int, Color>{
+            50: Palette.pink50,
+            100: Palette.pink100,
+            200: Palette.pink200,
+            300: Palette.pink300,
+            400: Palette.pink400,
+            500: Palette.pink500,
+            600: Palette.pink600,
+            700: Palette.pink700,
+            800: Palette.pink800,
+            900: Palette.pink900,
+          },
+        );
 
-  static const purple = AppColor(
-    0xFFa855f7,
-    <int, Color>{
-      50: AppColors.purple50,
-      100: AppColors.purple100,
-      200: AppColors.purple200,
-      300: AppColors.purple300,
-      400: AppColors.purple400,
-      500: AppColors.purple500,
-      600: AppColors.purple600,
-      700: AppColors.purple700,
-      800: AppColors.purple800,
-      900: AppColors.purple900,
-    },
-  );
+  const Palette.rose()
+      : super(
+          0xFFf43f5e,
+          const <int, Color>{
+            50: Palette.rose50,
+            100: Palette.rose100,
+            200: Palette.rose200,
+            300: Palette.rose300,
+            400: Palette.rose400,
+            500: Palette.rose500,
+            600: Palette.rose600,
+            700: Palette.rose700,
+            800: Palette.rose800,
+            900: Palette.rose900,
+          },
+        );
 
-  static const fuchsia = AppColor(
-    0xFFd946ef,
-    <int, Color>{
-      50: AppColors.fuchsia50,
-      100: AppColors.fuchsia100,
-      200: AppColors.fuchsia200,
-      300: AppColors.fuchsia300,
-      400: AppColors.fuchsia400,
-      500: AppColors.fuchsia500,
-      600: AppColors.fuchsia600,
-      700: AppColors.fuchsia700,
-      800: AppColors.fuchsia800,
-      900: AppColors.fuchsia900,
-    },
-  );
-
-  static const pink = AppColor(
-    0xFFec4899,
-    <int, Color>{
-      50: AppColors.pink50,
-      100: AppColors.pink100,
-      200: AppColors.pink200,
-      300: AppColors.pink300,
-      400: AppColors.pink400,
-      500: AppColors.pink500,
-      600: AppColors.pink600,
-      700: AppColors.pink700,
-      800: AppColors.pink800,
-      900: AppColors.pink900,
-    },
-  );
-
-  static const rose = AppColor(
-    0xFFf43f5e,
-    <int, Color>{
-      50: AppColors.rose50,
-      100: AppColors.rose100,
-      200: AppColors.rose200,
-      300: AppColors.rose300,
-      400: AppColors.rose400,
-      500: AppColors.rose500,
-      600: AppColors.rose600,
-      700: AppColors.rose700,
-      800: AppColors.rose800,
-      900: AppColors.rose900,
-    },
-  );
-}
-
-class AppColors {
   static const Color black = Color.fromRGBO(12, 9, 42, 1);
   static const Color white = Color(0xFFFFFFFF);
 
