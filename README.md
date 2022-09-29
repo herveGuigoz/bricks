@@ -22,6 +22,7 @@ Use `mason new` command to create a new brick
 
 ```bash
 mason new <brick>
+mason add <brick> --path <brick>/
 ```
 
 ### Usage
