@@ -1,3 +1,5 @@
 bricks:
+  supabase:
+    path: supabase
   cubit:
     path: cubit
