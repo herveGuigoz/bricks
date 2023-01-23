@@ -1,7 +1,8 @@
 analyzer:
-  strong-mode:
-    implicit-casts: false
-    implicit-dynamic: false
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
 
   errors:
     close_sinks: ignore
@@ -9,9 +10,10 @@ analyzer:
     missing_return: error
 
   exclude:
-    - bricks/**
-    - cubit/**
-    - supabase/**
+    - test/.test_coverage.dart
+    - lib/generated_plugin_registrant.dart
+    - '**/*.freezed.dart'
+    - '**/*.g.dart'
 
 linter:
   rules:
@@ -27,9 +29,11 @@ linter:
     - avoid_equals_and_hash_code_on_mutable_classes
     - avoid_escaping_inner_quotes
     - avoid_field_initializers_in_const_classes
+    - avoid_final_parameters
     - avoid_function_literals_in_foreach_calls
     - avoid_init_to_null
     - avoid_js_rounded_ints
+    - avoid_multiple_declarations_per_line
     - avoid_null_checks_in_equality_operators
     - avoid_positional_boolean_parameters
     - avoid_print
@@ -59,9 +63,11 @@ linter:
     - cascade_invocations
     - cast_nullable_to_non_nullable
     - comment_references
+    - conditional_uri_does_not_exist
     - constant_identifier_names
     - control_flow_in_finally
     - curly_braces_in_flow_control_structures
+    - depend_on_referenced_packages
     - deprecated_consistency
     - directives_ordering
     - empty_catches
@@ -73,20 +79,20 @@ linter:
     - flutter_style_todos
     - hash_and_equals
     - implementation_imports
-    - invariant_booleans
     - iterable_contains_unrelated_type
     - join_return_with_assignment
     - leading_newlines_in_multiline_strings
     - library_names
     - library_prefixes
     - library_private_types_in_public_api
-    - lines_longer_than_80_chars
     - list_remove_unrelated_type
     - literal_only_boolean_expressions
     - missing_whitespace_between_adjacent_strings
     - no_adjacent_strings_in_list
     - no_default_cases
     - no_duplicate_case_values
+    - no_leading_underscores_for_library_prefixes
+    - no_leading_underscores_for_local_identifiers
     - no_logic_in_create_state
     - no_runtimeType_toString
     - non_constant_identifier_names
@@ -129,17 +135,18 @@ linter:
     - prefer_is_not_empty
     - prefer_is_not_operator
     - prefer_iterable_whereType
-    - prefer_null_aware_operators
     - prefer_null_aware_method_calls
+    - prefer_null_aware_operators
     - prefer_single_quotes
     - prefer_spread_collections
     - prefer_typing_uninitialized_variables
     - prefer_void_to_null
     - provide_deprecation_message
-    # - public_member_api_docs
     - recursive_getters
     - require_trailing_commas
+    - secure_pubspec_urls
     - sized_box_for_whitespace
+    - sized_box_shrink_expand
     - slash_for_doc_comments
     - sort_child_properties_last
     - sort_constructors_first
@@ -154,8 +161,10 @@ linter:
     - unnecessary_await_in_return
     - unnecessary_brace_in_string_interps
     - unnecessary_const
+    - unnecessary_constructor_name
     - unnecessary_getters_setters
     - unnecessary_lambdas
+    - unnecessary_late
     - unnecessary_new
     - unnecessary_null_aware_assignments
     - unnecessary_null_checks
@@ -168,10 +177,15 @@ linter:
     - unnecessary_string_escapes
     - unnecessary_string_interpolations
     - unnecessary_this
+    - unnecessary_to_list_in_spreads
     - unrelated_type_equality_checks
     - use_build_context_synchronously
+    - use_colored_box
+    - use_decorated_box
+    - use_enums
     - use_full_hex_values_for_flutter_colors
     - use_function_type_syntax_for_parameters
+    - use_if_null_to_convert_nulls_to_bools
     - use_is_even_rather_than_modulo
     - use_key_in_widget_constructors
     - use_late_for_private_fields_and_variables
@@ -180,6 +194,8 @@ linter:
     - use_rethrow_when_possible
     - use_setters_to_change_properties
     - use_string_buffers
+    - use_super_parameters
+    - use_test_throws_matchers
     - use_to_and_as_if_applicable
     - valid_regexps
     - void_checks

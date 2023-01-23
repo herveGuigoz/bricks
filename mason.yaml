@@ -3,3 +3,5 @@ bricks:
     path: supabase
   cubit:
     path: cubit
+  makefile:
+    path: makefile
