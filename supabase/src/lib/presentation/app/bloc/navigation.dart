@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:supabase/domain/ports/session.dart';
-import 'package:supabase/presentation/app/bloc/presenter.dart';
-import 'package:supabase/presentation/counter/counter.dart';
-import 'package:supabase/presentation/login/view/login.dart';
+import 'package:app/domain/ports/session.dart';
+import 'package:app/presentation/app/bloc/presenter.dart';
+import 'package:app/presentation/counter/counter.dart';
+import 'package:app/presentation/login/view/login.dart';
 
 final routerProvider = Provider(
   (ref) => GoRouter(

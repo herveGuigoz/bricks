@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:{{name.snakeCase()}}/domain/ports/session.dart';
-import 'package:{{name.snakeCase()}}/presentation/app/bloc/presenter.dart';
+import 'package:{{name.snakeCase()}}/presentation/{{name.snakeCase()}}/bloc/presenter.dart';
 import 'package:{{name.snakeCase()}}/presentation/counter/counter.dart';
 import 'package:{{name.snakeCase()}}/presentation/login/view/login.dart';
 

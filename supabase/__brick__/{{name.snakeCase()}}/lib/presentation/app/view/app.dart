@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:{{name.snakeCase()}}/l10n.dart';
-import 'package:{{name.snakeCase()}}/presentation/app/bloc/navigation.dart';
+import 'package:{{name.snakeCase()}}/presentation/{{name.snakeCase()}}/bloc/navigation.dart';
 import 'package:{{name.snakeCase()}}/presentation/shared/theme/theme.dart';
 
 class App extends ConsumerWidget {

@@ -4,8 +4,8 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:supabase/adapters/http/http.dart';
-import 'package:supabase/adapters/storage/storage.dart';
+import 'package:{{name.snakeCase()}}/adapters/http/http.dart';
+import 'package:{{name.snakeCase()}}/adapters/storage/storage.dart';
 
 const PROJECT_ID = String.fromEnvironment(
   'PROJECT_ID',
@@ -18,7 +18,7 @@ const API_KEY = String.fromEnvironment(
 typedef Json = Map<String, dynamic>;
 
 abstract class SupabaseRepository extends HttpClientInterface {
-  SupabaseRepository() : super(headers: {'apikey': API_KEY, 'Content-Type': 'application/json'}) {
+  SupabaseRepository() : super(headers: {'apikey': API_KEY, 'Content-Type': '{{name.snakeCase()}}lication/json'}) {
     interceptor = SupabaseJwtInterceptor(storage: CredentialsStorage());
     client.interceptors.add(interceptor);
   }
@@ -39,7 +39,7 @@ class SupabaseJwtInterceptor extends JwtInterceptor {
       },
       options: Options(
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': '{{name.snakeCase()}}lication/json',
           'Authorization': 'Bearer ${credentials.accessToken}',
           'apikey': API_KEY,
         },

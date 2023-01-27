@@ -13,7 +13,7 @@ abstract class JwtInterceptor extends QueuedInterceptor with RefreshTokenMixin {
     // required this.refreshTokenURL,
     required CredentialsStorageInterface storage,
   })  : _storage = storage,
-        httpClient = Dio(BaseOptions(headers: {'Content-Type': 'application/json'}));
+        httpClient = Dio(BaseOptions(headers: {'Content-Type': '{{name.snakeCase()}}lication/json'}));
 
   /// Local storage to save user's [Credentials].
   @override

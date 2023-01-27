@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:supabase/domain/ports/storage.dart';
+import 'package:app/domain/ports/storage.dart';
 
 class Storage implements StorageInterface {
   const Storage._(this._prefs);

@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:supabase/domain/ports/session.dart';
+import 'package:app/domain/ports/session.dart';
 
 part 'credentials.dart';
 part 'http.freezed.dart';

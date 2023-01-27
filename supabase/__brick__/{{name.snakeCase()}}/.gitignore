@@ -57,7 +57,7 @@ unlinked_spec.ds
 .fvm/
 
 # Android related
-**/android/**/gradle-wrapper.jar
+**/android/**/gradle-wr{{name.snakeCase()}}er.jar
 **/android/.gradle
 **/android/captures/
 **/android/gradlew
@@ -89,8 +89,8 @@ unlinked_spec.ds
 **/ios/Flutter/Flutter.framework
 **/ios/Flutter/Flutter.podspec
 **/ios/Flutter/Generated.xcconfig
-**/ios/Flutter/app.flx
-**/ios/Flutter/app.zip
+**/ios/Flutter/{{name.snakeCase()}}.flx
+**/ios/Flutter/{{name.snakeCase()}}.zip
 **/ios/Flutter/.last_build_id
 **/ios/Flutter/flutter_assets/
 **/ios/Flutter/flutter_export_environment.sh
@@ -108,10 +108,10 @@ packages/**/pubspec.lock
 lib/generated_plugin_registrant.dart
 
 # Symbolication related
-app.*.symbols
+{{name.snakeCase()}}.*.symbols
 
 # Obfuscation related
-app.*.map.json
+{{name.snakeCase()}}.*.map.json
 
 # Exceptions to the above rules.
 !**/ios/**/default.mode1v3

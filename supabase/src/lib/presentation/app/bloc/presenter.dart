@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:supabase/domain/di.dart';
-import 'package:supabase/domain/ports/session.dart';
-import 'package:supabase/presentation/app/bloc/deep_links.dart';
+import 'package:app/domain/di.dart';
+import 'package:app/domain/ports/session.dart';
+import 'package:app/presentation/app/bloc/deep_links.dart';
 
 typedef AppStateNotifierProvider = StateNotifierProvider<_AppStateNotifier, AuthenticationStatus>;
 

@@ -15,7 +15,7 @@ Future<void> main() async {
 
   for (final file in files) {
     var content = await file.readAsString();
-    content = content.replaceAll('supabase', '{{name.snakeCase()}}');
+    content = content.replaceAll('app', '{{name.snakeCase()}}');
 
     await file.writeAsString(content);
   }

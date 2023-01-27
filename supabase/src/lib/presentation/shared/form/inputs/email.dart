@@ -1,4 +1,4 @@
-import 'package:supabase/presentation/shared/form/form.dart';
+import 'package:app/presentation/shared/form/form.dart';
 
 class Email extends FormInput<String> {
   const Email(super.value);

@@ -11,7 +11,7 @@ class CounterView extends ConsumerWidget {
     final l10n = context.l10n;
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
+      {{name.snakeCase()}}Bar: AppBar(title: Text(l10n.counterAppBarTitle)),
       body: const Center(child: CounterText()),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,

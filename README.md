@@ -16,6 +16,12 @@ Use `mason add` command to add brick templates globally on your machine.
 mason add <name> -g --git-url https://github.com/herveGuigoz/bricks --git-path bricks/<name>
 ```
 
+or
+
+```bash
+mason add <name> -g --path="./<name>"
+```
+
 ### Create new brick
 
 Use `mason new` command to create a new brick 

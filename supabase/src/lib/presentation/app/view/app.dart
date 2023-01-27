@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:supabase/l10n.dart';
-import 'package:supabase/presentation/app/bloc/navigation.dart';
-import 'package:supabase/presentation/shared/theme/theme.dart';
+import 'package:app/l10n.dart';
+import 'package:app/presentation/app/bloc/navigation.dart';
+import 'package:app/presentation/shared/theme/theme.dart';
 
 class App extends ConsumerWidget {
   const App({super.key});

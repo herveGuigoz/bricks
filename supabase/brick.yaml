@@ -26,3 +26,13 @@ vars:
     description: Your name
     default: Dash
     prompt: What is your name?
+  id:
+    type: string
+    description: Supabase project id
+    default: project_id
+    prompt: What is your project id?
+  key:
+    type: string
+    description: Supabase key
+    default: project_id
+    prompt: What is your supabase key?

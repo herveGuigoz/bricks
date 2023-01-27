@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:supabase/adapters/storage/storage.dart';
+import 'package:app/adapters/storage/storage.dart';
 
 class AppObserver extends ProviderObserver {
   @override

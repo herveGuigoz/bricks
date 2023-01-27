@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:supabase/adapters/http/http.dart';
-import 'package:supabase/adapters/supabase/supabase.dart';
-import 'package:supabase/domain/ports/session.dart';
+import 'package:{{name.snakeCase()}}/adapters/http/http.dart';
+import 'package:{{name.snakeCase()}}/adapters/repositories/abstract_repository.dart';
+import 'package:{{name.snakeCase()}}/domain/ports/session.dart';
 
 class SessionRepository extends SupabaseRepository implements SessionRepositoryInterface {
   SessionRepository();
