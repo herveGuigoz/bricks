@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:app/domain/di.dart';
-import 'package:app/domain/ports/session.dart';
-import 'package:app/presentation/shared/form/form.dart';
-import 'package:app/presentation/shared/form/inputs/inputs.dart';
+import 'package:app_name/domain/di.dart';
+import 'package:app_name/domain/ports/session.dart';
+import 'package:app_name/presentation/shared/form/form.dart';
+import 'package:app_name/presentation/shared/form/inputs/inputs.dart';
 
 final loginStatePresenter = AutoDisposeNotifierProvider<_LoginFormNotifier, LoginState>(
   _LoginFormNotifier.new,

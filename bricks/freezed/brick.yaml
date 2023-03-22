@@ -1,8 +1,0 @@
-name: freezed
-description: New freezed class.
-version: 1.0.1
-vars:
-  name:
-    type: string
-    description: The class name
-    prompt: What is the class name?

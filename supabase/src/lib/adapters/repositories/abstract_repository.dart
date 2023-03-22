@@ -2,10 +2,10 @@
 
 import 'dart:convert';
 
+import 'package:app_name/adapters/http/http.dart';
+import 'package:app_name/adapters/storage/storage.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:app/adapters/http/http.dart';
-import 'package:app/adapters/storage/storage.dart';
 
 const PROJECT_ID = String.fromEnvironment(
   'PROJECT_ID',
@@ -17,9 +17,9 @@ const API_KEY = String.fromEnvironment(
 
 typedef Json = Map<String, dynamic>;
 
-abstract class SupabaseRepository extends HttpClientInterface {
-  SupabaseRepository() : super(headers: {'apikey': API_KEY, 'Content-Type': 'application/json'}) {
-    interceptor = SupabaseJwtInterceptor(storage: CredentialsStorage());
+abstract class AbstractRepository extends HttpClientInterface {
+  AbstractRepository() : super(defaultHeaders: {'apikey': API_KEY, 'Content-Type': 'application/json'}) {
+    interceptor = JwtInterceptor(storage: CredentialsStorage());
     client.interceptors.add(interceptor);
   }
 
@@ -27,8 +27,8 @@ abstract class SupabaseRepository extends HttpClientInterface {
   late final JwtInterceptor interceptor;
 }
 
-class SupabaseJwtInterceptor extends JwtInterceptor {
-  SupabaseJwtInterceptor({required super.storage});
+class JwtInterceptor extends JwtInterceptorInterface {
+  JwtInterceptor({required super.storage});
 
   @override
   Future<Credentials> refreshToken(Credentials credentials) async {

@@ -1,16 +1,26 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:{{name.snakeCase()}}/adapters/http/http.dart';
 import 'package:{{name.snakeCase()}}/adapters/repositories/abstract_repository.dart';
 import 'package:{{name.snakeCase()}}/domain/ports/session.dart';
+import 'package:flutter/foundation.dart';
 
-class SessionRepository extends SupabaseRepository implements SessionRepositoryInterface {
+class SessionRepository extends AbstractRepository implements SessionRepositoryInterface {
   SessionRepository();
 
   @override
   Stream<AuthenticationStatus> onAuthenticationStatusEvents() {
     return interceptor.authenticationStatus;
+  }
+
+  @override
+  Future<void> signInWithPassword(String email, String password) async {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> signInWithOauth(String provider, String redirectTo) async {
+    throw UnimplementedError();
   }
 
   @override

@@ -1,1 +1,1 @@
-export 'view/{{name.snakeCase()}}.dart';
+export 'view/app.dart';

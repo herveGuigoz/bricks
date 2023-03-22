@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:supabase/presentation/counter/counter.dart';
+import 'package:{{name.snakeCase()}}/presentation/counter/counter.dart';
 
 import '../../helpers/helpers.dart';
 
@@ -22,14 +22,14 @@ void main() {
       expect(find.text('$state'), findsOneWidget);
     });
 
-    testWidgets('calls increment when increment button is t{{name.snakeCase()}}ed', (tester) async {
+    testWidgets('calls increment when increment button is tapped', (tester) async {
       const state = 2;
       await tester.pumpApp(const CounterView());
       await tester.tap(find.byIcon(Icons.add));
       expect(find.text('$state'), findsOneWidget);
     });
 
-    testWidgets('calls decrement when decrement button is t{{name.snakeCase()}}ed', (tester) async {
+    testWidgets('calls decrement when decrement button is tapped', (tester) async {
       const state = 0;
       await tester.pumpApp(const CounterView());
       await tester.tap(find.byIcon(Icons.remove));

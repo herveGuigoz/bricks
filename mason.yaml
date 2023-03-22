@@ -1,7 +1,1 @@
 bricks:
-  supabase:
-    path: supabase
-  cubit:
-    path: cubit
-  makefile:
-    path: makefile

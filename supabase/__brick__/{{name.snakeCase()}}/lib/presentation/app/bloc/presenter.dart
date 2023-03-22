@@ -1,28 +1,28 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:{{name.snakeCase()}}/domain/di.dart';
 import 'package:{{name.snakeCase()}}/domain/ports/session.dart';
-import 'package:{{name.snakeCase()}}/presentation/{{name.snakeCase()}}/bloc/deep_links.dart';
+import 'package:{{name.snakeCase()}}/presentation/app/bloc/deep_links.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 typedef AppStateNotifierProvider = StateNotifierProvider<_AppStateNotifier, AuthenticationStatus>;
 
 typedef IsAuthenticatedProvider = Provider<bool>;
 
 abstract class AppPresenter {
-  static AppStateNotifierProvider get state => _{{name.snakeCase()}}StateProvider;
+  static AppStateNotifierProvider get state => _appStateProvider;
 
   static IsAuthenticatedProvider get isAuthenticated => _isAuthenticatedProvider;
 }
 
-final _{{name.snakeCase()}}StateProvider = AppStateNotifierProvider(
+final _appStateProvider = AppStateNotifierProvider(
   (ref) => _AppStateNotifier(ref.watch(Dependency.sessionRepository)),
   name: 'AppStateNotifierProvider',
 );
 
 final _isAuthenticatedProvider = Provider<bool>(
-  (ref) => ref.watch(_{{name.snakeCase()}}StateProvider) == AuthenticationStatus.authenticated,
+  (ref) => ref.watch(_appStateProvider) == AuthenticationStatus.authenticated,
   name: 'IsAuthenticatedProvider',
 );
 

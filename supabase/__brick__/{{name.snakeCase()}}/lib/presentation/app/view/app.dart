@@ -1,11 +1,11 @@
+import 'package:{{name.snakeCase()}}/l10n.dart';
+import 'package:{{name.snakeCase()}}/presentation/app/bloc/navigation.dart';
+import 'package:{{name.snakeCase()}}/presentation/shared/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:{{name.snakeCase()}}/l10n.dart';
-import 'package:{{name.snakeCase()}}/presentation/{{name.snakeCase()}}/bloc/navigation.dart';
-import 'package:{{name.snakeCase()}}/presentation/shared/theme/theme.dart';
 
-class App extends ConsumerWidget {
-  const App({super.key});
+class {{name.pascalCase()}} extends ConsumerWidget {
+  const {{name.pascalCase()}}({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

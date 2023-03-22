@@ -1,3 +1,0 @@
-name: widget_split
-description: A widget that takes a list of children, lays them out along [axis], and allows the user to resize them.
-version: 1.0.0

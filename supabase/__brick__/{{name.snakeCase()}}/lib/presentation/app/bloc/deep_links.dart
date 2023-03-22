@@ -7,8 +7,8 @@ import 'package:uni_links/uni_links.dart';
 mixin DeepLinkObserverMixin {
   StreamSubscription<Uri?>? _sub;
 
-  /// The initial Uri - the one the {{name.snakeCase()}} was started with.
-  /// Should be handled only once in the {{name.snakeCase()}}'s lifetime.
+  /// The initial Uri - the one the app was started with.
+  /// Should be handled only once in the app's lifetime.
   static Uri? _initialLink;
 
   /// Callback when deeplink receiving succeeds
@@ -26,11 +26,11 @@ mixin DeepLinkObserverMixin {
     _sub?.cancel();
   }
 
-  /// Handle incoming links - the ones that the {{name.snakeCase()}} will recieve from the OS
+  /// Handle incoming links - the ones that the app will recieve from the OS
   /// while already started.
   void _handleIncomingLinks() {
     if (!kIsWeb) {
-      // It will handle {{name.snakeCase()}} links while the {{name.snakeCase()}} is already started - be it in
+      // It will handle app links while the app is already started - be it in
       // the foreground or in the background.
       _sub = uriLinkStream.listen(
         (Uri? uri) {

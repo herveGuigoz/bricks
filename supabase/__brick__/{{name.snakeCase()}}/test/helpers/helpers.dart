@@ -1,1 +1,1 @@
-export 'pump_{{name.snakeCase()}}.dart';
+export 'pump_app.dart';

@@ -4,7 +4,11 @@ abstract class SessionRepositoryInterface {
   /// Method to notify when authentication status changed.
   Stream<AuthenticationStatus> onAuthenticationStatusEvents();
 
-  /// Method to do sign in.
+  /// Methods to do sign in.
+  Future<void> signInWithPassword(String email, String password);
+
+  Future<void> signInWithOauth(String provider, String redirectTo);
+
   Future<void> signInWithOtp({required String email, required bool isWeb});
 
   /// Recover session from deep links.

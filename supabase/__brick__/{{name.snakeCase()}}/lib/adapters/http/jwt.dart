@@ -8,12 +8,12 @@ abstract class CredentialsStorageInterface {
   Future<void> delete();
 }
 
-abstract class JwtInterceptor extends QueuedInterceptor with RefreshTokenMixin {
-  JwtInterceptor({
+abstract class JwtInterceptorInterface extends QueuedInterceptor with RefreshTokenMixin {
+  JwtInterceptorInterface({
     // required this.refreshTokenURL,
     required CredentialsStorageInterface storage,
   })  : _storage = storage,
-        httpClient = Dio(BaseOptions(headers: {'Content-Type': '{{name.snakeCase()}}lication/json'}));
+        httpClient = Dio(BaseOptions(headers: {'Content-Type': 'application/json'}));
 
   /// Local storage to save user's [Credentials].
   @override
@@ -43,7 +43,7 @@ abstract class JwtInterceptor extends QueuedInterceptor with RefreshTokenMixin {
   /// Add jwt token to request header if user is authenticated and take care of
   /// the refresh feature if the token is expired.
   Future<void> _addAuthorizationHeader(RequestOptions options) async {
-    var credentials = getCredentials();
+    final credentials = getCredentials();
 
     if (credentials == null) {
       return;
@@ -53,17 +53,16 @@ abstract class JwtInterceptor extends QueuedInterceptor with RefreshTokenMixin {
       try {
         final response = await refreshToken(credentials);
         await saveCredentials(response);
-      } catch (_) {
-        await clearCredentials();
-        credentials = null;
+      } on SocketException {
+        throw NoInternetConnection();
+      } catch (e) {
+        throw RefreshTokenException(e.toString());
       }
     }
 
-    if (credentials != null) {
-      options.headers.addAll(
-        {'Authorization': 'Bearer ${_credentials!.accessToken}'},
-      );
-    }
+    options.headers.addAll(
+      {'Authorization': 'Bearer ${_credentials!.accessToken}'},
+    );
   }
 }
 
@@ -98,4 +97,13 @@ mixin RefreshTokenMixin {
     await _storage.delete();
     _controller.add(AuthenticationStatus.unauthenticated);
   }
+}
+
+class RefreshTokenException implements Exception {
+  RefreshTokenException(this.error);
+
+  final String error;
+
+  @override
+  String toString() => 'RefreshTokenException: $error';
 }

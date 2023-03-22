@@ -1,11 +1,11 @@
+import 'package:app_name/l10n.dart';
+import 'package:app_name/presentation/app/bloc/navigation.dart';
+import 'package:app_name/presentation/shared/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:app/l10n.dart';
-import 'package:app/presentation/app/bloc/navigation.dart';
-import 'package:app/presentation/shared/theme/theme.dart';
 
-class App extends ConsumerWidget {
-  const App({super.key});
+class AppName extends ConsumerWidget {
+  const AppName({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

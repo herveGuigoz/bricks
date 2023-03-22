@@ -1,12 +1,12 @@
 import 'dart:async';
 
+import 'package:app_name/domain/ports/session.dart';
+import 'package:app_name/presentation/app/bloc/presenter.dart';
+import 'package:app_name/presentation/counter/counter.dart';
+import 'package:app_name/presentation/login/view/login.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:app/domain/ports/session.dart';
-import 'package:app/presentation/app/bloc/presenter.dart';
-import 'package:app/presentation/counter/counter.dart';
-import 'package:app/presentation/login/view/login.dart';
 
 final routerProvider = Provider(
   (ref) => GoRouter(

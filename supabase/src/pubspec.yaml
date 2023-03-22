@@ -1,5 +1,5 @@
-name: app
-description: app mobile
+name: app_name
+description: Flutter Application
 version: 1.0.0+1
 publish_to: none
 

@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:app_name/domain/di.dart';
+import 'package:app_name/domain/ports/session.dart';
+import 'package:app_name/presentation/app/bloc/deep_links.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:app/domain/di.dart';
-import 'package:app/domain/ports/session.dart';
-import 'package:app/presentation/app/bloc/deep_links.dart';
 
 typedef AppStateNotifierProvider = StateNotifierProvider<_AppStateNotifier, AuthenticationStatus>;
 

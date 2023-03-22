@@ -12,6 +12,7 @@ analyzer:
     - bricks/**
     - cubit/**
     - supabase/**
+    - freezed/**
 
 linter:
   rules:

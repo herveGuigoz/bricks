@@ -1,5 +1,0 @@
-name: inherited_widget
-description: Base class for widgets that efficiently propagate information down the tree.
-version: 1.0.0
-vars:
-  - class

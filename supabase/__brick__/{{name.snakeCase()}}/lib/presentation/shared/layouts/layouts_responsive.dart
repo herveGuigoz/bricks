@@ -15,7 +15,7 @@ abstract class Breakpoints {
   static const double laptop = 1280;
 }
 
-/// A wr{{name.snakeCase()}}er around [LayoutBuilder] which exposes builders for
+/// A wrapper around [LayoutBuilder] which exposes builders for
 /// various responsive breakpoints.
 class ResponsiveLayoutBuilder extends StatelessWidget {
   const ResponsiveLayoutBuilder({
