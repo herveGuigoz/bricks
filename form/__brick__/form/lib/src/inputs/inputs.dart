@@ -1,26 +1,26 @@
 part of '../form.dart';
 
-const _invalidEmailMessage = 'This value is not a valid email address.';
-
-const _invalidPasswordMessage = 'Password must be at least 8 characters long and contain at least one letter and one number.';
-
 class EmailInput extends FormInput<String> with EmailValidator {
-  const EmailInput(String value, {this.message = _invalidEmailMessage}) : super(value, isPure: false);
-
-  const EmailInput.initial({String value = '', this.message = _invalidEmailMessage}) : super(value, isPure: true);
+  const EmailInput({
+    super.value = '',
+    super.isPure = true,
+    this.message = 'This value is not a valid email address.',
+  });
 
   @override
   final String message;
 
-  EmailInput copyWith({String? value}) {
-    return EmailInput(value ?? this.value, message: message);
+  EmailInput copyWith(String value) {
+    return EmailInput(value: value, isPure: false, message: message);
   }
 }
 
 class PasswordInput extends FormInput<String> with RegexValidator {
-  const PasswordInput(String value, {this.message = _invalidPasswordMessage}) : super(value, isPure: false);
-
-  const PasswordInput.initial({String value = '', this.message = _invalidPasswordMessage}) : super(value, isPure: true);
+  const PasswordInput({
+    super.value = '',
+    super.isPure = true,
+    this.message = 'Password must be at least 8 characters long and contain at least one letter and one number.',
+  });
 
   /// ^ - matches the start of the string.
   /// (?=.*[A-Za-z]) - positive lookahead to ensure that there is at least one letter in the string.
@@ -33,7 +33,7 @@ class PasswordInput extends FormInput<String> with RegexValidator {
   @override
   final String message;
 
-  PasswordInput copyWith({String? value}) {
-    return PasswordInput(value ?? this.value, message: message);
+  PasswordInput copyWith(String value) {
+    return PasswordInput(value: value, isPure: false, message: message);
   }
 }

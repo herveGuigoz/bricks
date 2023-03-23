@@ -6,27 +6,28 @@ import 'helpers/login_form.dart';
 void main() {
   group('FormMixin', () {
     test('is pure when none of the inputs were touched', () {
-      final form = LoginForm();
+      const form = LoginForm();
       expect(form.isPure, isTrue);
     });
 
     test('is dirty when one or multiple inputs were touched', () {
-      final form = LoginForm(email: const EmailInput('foo@domain.com'));
+      const email = EmailInput();
+      final form = LoginForm(email: email.copyWith('foo@domain.com'));
       expect(form.isPure, isFalse);
     });
 
     test('is valid when all fields are valid', () {
-      final form = LoginForm(
-        email: const EmailInput('foo@domain.com'),
-        password: const PasswordInput('Exemple123'),
+      const form = LoginForm(
+        email: EmailInput(value: 'foo@domain.com'),
+        password: PasswordInput(value: 'Exemple123'),
       );
       expect(form.isValid, isTrue);
     });
 
     test('is invalid when one or multiple inputs were invalid', () {
-      final form = LoginForm(
-        email: const EmailInput('foo@domain.com'),
-        password: const PasswordInput('foo'),
+      const form = LoginForm(
+        email: EmailInput(value: 'foo@domain.com'),
+        password: PasswordInput(value: 'foo'),
       );
       expect(form.isValid, isFalse);
     });

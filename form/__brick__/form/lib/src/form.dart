@@ -39,7 +39,7 @@ mixin FormMixin {
   }
 
   bool get isValid {
-    return inputs.every((input) => input?.isValid ?? true) && !isPure;
+    return inputs.every((input) => input?.isValid ?? true);
   }
 }
 
@@ -56,14 +56,10 @@ enum FormInputStatus {
 
 @immutable
 abstract class FormInput<T> {
-  const FormInput(
-    T value, {
-    bool isPure = false,
-  }) : this._(value, isPure: isPure);
-
-  const FormInput._(this.value, {this.isPure = true});
-
-  const FormInput.initial(T value) : this._(value);
+  const FormInput({
+    required this.value,
+    this.isPure = true,
+  });
 
   /// The value of the given [FormInput].
   /// For example, if you have a `FormInput` for `FirstName`,
