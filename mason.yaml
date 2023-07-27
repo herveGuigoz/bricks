@@ -1,1 +1,11 @@
 bricks:
+  supabase:
+    path: supabase
+  form:
+    path: form
+  freezed:
+    path: freezed
+  refine_ressource:
+    path: refine/ressource
+  nestjs:
+    path: nestjs
