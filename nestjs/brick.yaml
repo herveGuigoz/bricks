@@ -28,6 +28,6 @@ environment:
 vars:
   name:
     type: string
-    description: Your name
-    default: Dash
-    prompt: What is your name?
+    description: The resource name
+    default: User
+    prompt: What is the resource name?
