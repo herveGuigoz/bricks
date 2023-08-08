@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch development",
+            "request": "launch",
+            "deviceId": "{{deviceId}}",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "development"
+            ]
+        },
+        {
+            "name": "Launch staging",
+            "request": "launch",
+            "deviceId": "{{deviceId}}",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "staging"
+            ]
+        },
+        {
+            "name": "Launch production",
+            "request": "launch",
+            "deviceId": "{{deviceId}}",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "production"
+            ]
+        }
+    ]
+}

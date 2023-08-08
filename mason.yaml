@@ -9,3 +9,5 @@ bricks:
     path: refine/ressource
   nestjs:
     path: nestjs
+  vscode:
+    path: vscode

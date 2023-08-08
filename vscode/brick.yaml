@@ -1,0 +1,14 @@
+name: vscode
+description: vscode launch configuration
+
+version: 0.1.0+1
+
+environment:
+  mason: ">=0.1.0-dev.50 <0.1.0"
+
+vars:
+  deviceId:
+    type: string
+    description: device id
+    default: 192.168.1.1:5555
+    prompt: What is your device id?

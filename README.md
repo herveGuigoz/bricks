@@ -19,7 +19,7 @@ mason add <name> -g --git-url https://github.com/herveGuigoz/bricks --git-path b
 or
 
 ```bash
-mason add <name> -g --path="./<name>"
+mason add <name> -g --path ./<name>
 ```
 
 ### Create new brick
@@ -28,7 +28,7 @@ Use `mason new` command to create a new brick
 
 ```bash
 mason new <brick>
-mason add <brick> --path <brick>/
+mason add <brick> --path ./<brick>
 ```
 
 ### Usage
