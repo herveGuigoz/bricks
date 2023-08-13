@@ -7,13 +7,9 @@ import 'package:app_name/adapters/storage/storage.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-const PROJECT_ID = String.fromEnvironment(
-  'PROJECT_ID',
-);
+const PROJECT_ID = String.fromEnvironment('PROJECT_ID');
 
-const API_KEY = String.fromEnvironment(
-  'SUPABASE_KEY',
-);
+const API_KEY = String.fromEnvironment('SUPABASE_KEY');
 
 typedef Json = Map<String, dynamic>;
 

@@ -38,7 +38,7 @@ abstract class HttpClientInterface {
       );
 
       return Response(response.data as T, response.statusCode!);
-    } on DioError catch (_) {
+    } on DioException catch (_) {
       log(_.toString());
       throw NoInternetConnection(path: path);
     }
@@ -61,7 +61,7 @@ abstract class HttpClientInterface {
       );
 
       return Response(response.data as T, response.statusCode!);
-    } on DioError catch (_) {
+    } on DioException catch (_) {
       throw NoInternetConnection(path: path);
     }
   }
@@ -83,7 +83,7 @@ abstract class HttpClientInterface {
       );
 
       return Response(response.data as T, response.statusCode!);
-    } on DioError catch (_) {
+    } on DioException catch (_) {
       throw NoInternetConnection(path: path);
     }
   }
@@ -105,7 +105,7 @@ abstract class HttpClientInterface {
       );
 
       return Response(response.data as T, response.statusCode!);
-    } on DioError catch (_) {
+    } on DioException catch (_) {
       throw NoInternetConnection(path: path);
     }
   }
@@ -126,7 +126,7 @@ abstract class HttpClientInterface {
         options: Options(contentType: contentType, headers: headers),
       );
       return Response(response.data as T, response.statusCode!);
-    } on DioError catch (_) {
+    } on DioException catch (_) {
       throw NoInternetConnection(path: path);
     }
   }

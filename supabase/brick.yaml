@@ -23,16 +23,21 @@ environment:
 vars:
   name:
     type: string
-    description: Your name
-    default: Dash
-    prompt: What is your name?
-  id:
+    description: The project name
+    default: Supabase
+    prompt: What is the project name?
+  organization:
+    type: string
+    description: The organization name
+    default: io.supabase
+    prompt: What is the organization name?
+  project_id:
     type: string
     description: Supabase project id
-    default: project_id
+    default: supabase_id
     prompt: What is your project id?
-  key:
+  project_key:
     type: string
     description: Supabase key
-    default: project_id
+    default: supabase_key
     prompt: What is your supabase key?

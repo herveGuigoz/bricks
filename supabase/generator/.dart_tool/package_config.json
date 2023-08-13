@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "path",
-      "rootUri": "file:///Users/herveguigoz/.pub-cache/hosted/pub.dartlang.org/path-1.8.3",
+      "rootUri": "file:///Users/herveguigoz/.pub-cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -11,10 +11,10 @@
       "name": "generator",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-01-23T13:02:27.461055Z",
+  "generated": "2023-08-14T08:05:33.520666Z",
   "generator": "pub",
-  "generatorVersion": "2.18.5"
+  "generatorVersion": "3.0.6"
 }

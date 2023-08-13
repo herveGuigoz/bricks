@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:app_name/l10n.dart';
 import 'package:app_name/presentation/counter/counter.dart';
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class CounterView extends ConsumerWidget {
   const CounterView({super.key});
@@ -41,6 +41,6 @@ class CounterText extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final count = ref.watch(counterPresenter);
-    return Text('$count', style: theme.textTheme.headline1);
+    return Text('$count', style: theme.textTheme.displayLarge);
   }
 }

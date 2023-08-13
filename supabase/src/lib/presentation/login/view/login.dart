@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:android_intent_plus/android_intent.dart';
-import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:app_name/presentation/login/bloc/presenter.dart';
 import 'package:app_name/presentation/shared/components/unfocus.dart';
 import 'package:app_name/presentation/shared/theme/theme.dart';
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LoginView extends ConsumerWidget {

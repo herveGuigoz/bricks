@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:app_name/adapters/storage/storage.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:app_name/adapters/storage/storage.dart';
 
 class AppObserver extends ProviderObserver {
   @override
@@ -48,10 +48,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   await Storage.initialize();
 
-  await runZonedGuarded(
-    () async => runApp(
-      ProviderScope(observers: [AppObserver()], child: await builder()),
-    ),
-    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
+  runApp(
+    ProviderScope(observers: [AppObserver()], child: await builder()),
   );
 }

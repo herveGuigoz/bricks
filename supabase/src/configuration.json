@@ -1,0 +1,4 @@
+{
+    "PROJECT_ID": "{{project_id}}",
+    "SUPABASE_KEY": "{{project_key}}"
+}

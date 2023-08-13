@@ -1,0 +1,21 @@
+name: {{name.snakeCase()}}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on: pull_request
+
+jobs:
+  semantic-pull-request:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      flutter_channel: stable
+      flutter_version: 3.10.6
+      format_line_length: "120"
+      min_coverage: 100
+      coverage_excludes: '*.g.dart'
+      test_recursion: true

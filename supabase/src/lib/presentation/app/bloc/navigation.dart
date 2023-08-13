@@ -11,7 +11,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 final routerProvider = Provider(
   (ref) => GoRouter(
     refreshListenable: AppStateRefreshStream(
-      ref.read(AppPresenter.state.notifier).stream,
+      ref.read(AppPresenter.state.notifier).stream.distinct(),
     ),
     routes: [
       GoRoute(
@@ -27,7 +27,7 @@ final routerProvider = Provider(
     ],
     redirect: (context, state) {
       final isAuthenticated = ref.read(AppPresenter.isAuthenticated);
-      final location = state.location;
+      final location = state.uri.path;
 
       if (!isAuthenticated && location != '/login') {
         return '/login';

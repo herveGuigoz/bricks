@@ -9,6 +9,10 @@ class Command {
     return Command.run('mkdir', ['-p', destination]);
   }
 
+  static Future<void> rm(String source) async {
+    await Command.run('rm', ['-rf', source]);
+  }
+
   static Future<void> rename(String source, String destination) async {
     await Command.cp('$source/', '$destination/');
     await Command.run('rm', ['-rf', source]);
@@ -20,8 +24,12 @@ class Command {
     bool throwOnError = true,
     String? processWorkingDir,
   }) async {
-    final result = await Process.run(cmd, args,
-        workingDirectory: processWorkingDir, runInShell: true);
+    final result = await Process.run(
+      cmd,
+      args,
+      workingDirectory: processWorkingDir,
+      runInShell: true,
+    );
 
     if (throwOnError) {
       _throwIfProcessFailed(result, cmd, args);
@@ -35,10 +43,8 @@ class Command {
     List<String> args,
   ) {
     if (pr.exitCode != 0) {
-      final values = {
-        'Standard out': pr.stdout.toString().trim(),
-        'Standard error': pr.stderr.toString().trim()
-      }..removeWhere((k, v) => v.isEmpty);
+      final values = {'Standard out': pr.stdout.toString().trim(), 'Standard error': pr.stderr.toString().trim()}
+        ..removeWhere((k, v) => v.isEmpty);
 
       String message;
       if (values.isEmpty) {
