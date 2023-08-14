@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:app_name/domain/di.dart';
+import 'package:app_name/application/providers/providers.dart';
 import 'package:app_name/domain/ports/session.dart';
 import 'package:app_name/presentation/app/bloc/deep_links.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

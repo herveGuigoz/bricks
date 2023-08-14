@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:{{name.snakeCase()}}/adapters/http/http.dart';
-import 'package:{{name.snakeCase()}}/adapters/repositories/abstract_repository.dart';
+import 'package:{{name.snakeCase()}}/adapters/repositories/abstract.repository.dart';
 import 'package:{{name.snakeCase()}}/domain/ports/session.dart';
 import 'package:flutter/foundation.dart';
 
@@ -27,7 +27,7 @@ class SessionRepository extends AbstractRepository implements SessionRepositoryI
   Future<void> signInWithOtp({required String email, required bool isWeb}) async {
     final response = await post<void>(
       'https://$PROJECT_ID.supabase.co/auth/v1/otp',
-      queryParameters: {'redirect_to': isWeb ? 'http://localhost:3000' : 'io.supabase://otp'},
+      queryParameters: {'redirect_to': '{{name.snakeCase()}}://email-callback'},
       body: {
         'email': email,
         'create_user': false,
@@ -90,7 +90,7 @@ class SessionRepository extends AbstractRepository implements SessionRepositoryI
   Future<void> clearCredentials() => interceptor.clearCredentials();
 }
 
-class SignupError<T> implements Exception {
+class SignupError<T> implements SignInException {
   SignupError(this.response);
 
   final Response<T> response;
