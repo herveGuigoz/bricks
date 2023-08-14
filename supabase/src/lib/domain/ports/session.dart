@@ -21,9 +21,7 @@ abstract class SessionRepositoryInterface {
   Future<void> signOut();
 }
 
-abstract class SessionException implements Exception {
+class SignInException implements Exception {
   @override
-  String toString() => '$runtimeType';
+  String toString() => 'An error occurred while signing in.';
 }
-
-class SignInException implements SessionException {}

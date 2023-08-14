@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:{{name.snakeCase()}}/domain/di.dart';
+import 'package:{{name.snakeCase()}}/application/providers/providers.dart';
 import 'package:{{name.snakeCase()}}/domain/ports/session.dart';
 import 'package:{{name.snakeCase()}}/presentation/shared/form/form.dart';
 import 'package:{{name.snakeCase()}}/presentation/shared/form/inputs/inputs.dart';

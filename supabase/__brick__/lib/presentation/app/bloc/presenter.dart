@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:{{name.snakeCase()}}/domain/di.dart';
+import 'package:{{name.snakeCase()}}/application/providers/providers.dart';
 import 'package:{{name.snakeCase()}}/domain/ports/session.dart';
 import 'package:{{name.snakeCase()}}/presentation/app/bloc/deep_links.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
