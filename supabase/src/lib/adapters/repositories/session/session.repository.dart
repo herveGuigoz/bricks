@@ -30,7 +30,7 @@ class SessionRepository extends AbstractRepository implements SessionRepositoryI
   Future<void> signInWithOtp({required String email, required bool isWeb}) async {
     final response = await post(
       '/auth/v1/magiclink',
-      queryParameters: {'redirect_to': 'smarthub://email-callback'},
+      queryParameters: {'redirect_to': 'app_name://email-callback'},
       body: {'email': email, 'create_user': false},
       authorizationRequired: false,
     );
