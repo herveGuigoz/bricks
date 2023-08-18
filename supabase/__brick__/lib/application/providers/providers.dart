@@ -1,4 +1,4 @@
-import 'package:{{name.snakeCase()}}/adapters/repositories/session.repository.dart';
+import 'package:{{name.snakeCase()}}/adapters/repositories/session/session.repository.dart';
 import 'package:{{name.snakeCase()}}/domain/ports/session.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
