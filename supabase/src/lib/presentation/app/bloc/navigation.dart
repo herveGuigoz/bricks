@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:app_name/domain/ports/session.dart';
 import 'package:app_name/presentation/app/bloc/presenter.dart';
 import 'package:app_name/presentation/counter/counter.dart';
 import 'package:app_name/presentation/login/view/login.dart';
@@ -44,13 +43,13 @@ final routerProvider = Provider(
 );
 
 class AppStateRefreshStream extends ChangeNotifier {
-  AppStateRefreshStream(Stream<AuthenticationStatus> stream) {
+  AppStateRefreshStream(Stream<Object?> stream) {
     _subscription = stream.asBroadcastStream().listen((_) {
       notifyListeners();
     });
   }
 
-  late final StreamSubscription<Object> _subscription;
+  late final StreamSubscription<Object?> _subscription;
 
   @override
   void dispose() {

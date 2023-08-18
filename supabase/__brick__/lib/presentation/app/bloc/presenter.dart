@@ -2,11 +2,12 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:{{name.snakeCase()}}/application/providers/providers.dart';
+import 'package:{{name.snakeCase()}}/domain/entities/entities.dart';
 import 'package:{{name.snakeCase()}}/domain/ports/session.dart';
 import 'package:{{name.snakeCase()}}/presentation/app/bloc/deep_links.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-typedef AppStateNotifierProvider = StateNotifierProvider<_AppStateNotifier, AuthenticationStatus>;
+typedef AppStateNotifierProvider = StateNotifierProvider<_AppStateNotifier, User?>;
 
 typedef IsAuthenticatedProvider = Provider<bool>;
 
@@ -22,13 +23,14 @@ final _appStateProvider = AppStateNotifierProvider(
 );
 
 final _isAuthenticatedProvider = Provider<bool>(
-  (ref) => ref.watch(_appStateProvider) == AuthenticationStatus.authenticated,
+  (ref) => ref.watch(_appStateProvider) != null,
   name: 'IsAuthenticatedProvider',
 );
 
-class _AppStateNotifier extends StateNotifier<AuthenticationStatus> with DeepLinkObserverMixin {
+class _AppStateNotifier extends StateNotifier<User?> with DeepLinkObserverMixin {
   _AppStateNotifier(this._sessionRepository) : super(_sessionRepository.recoverSession()) {
     startDeeplinkObserver();
+    _sessionRepository.currentUser.listen((user) => state = user);
   }
 
   final SessionRepositoryInterface _sessionRepository;
@@ -46,6 +48,6 @@ class _AppStateNotifier extends StateNotifier<AuthenticationStatus> with DeepLin
 
   Future<void> signOut() async {
     await _sessionRepository.signOut();
-    state = AuthenticationStatus.unauthenticated;
+    state = null;
   }
 }

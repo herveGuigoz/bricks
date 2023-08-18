@@ -1,8 +1,10 @@
+import 'package:{{name.snakeCase()}}/domain/entities/entities.dart';
+
 enum AuthenticationStatus { authenticated, unauthenticated }
 
 abstract class SessionRepositoryInterface {
-  /// Method to notify when authentication status changed.
-  Stream<AuthenticationStatus> onAuthenticationStatusEvents();
+  /// Method to notify when user changed.
+  Stream<User?> get currentUser;
 
   /// Methods to do sign in.
   Future<void> signInWithPassword(String email, String password);
@@ -12,16 +14,18 @@ abstract class SessionRepositoryInterface {
   Future<void> signInWithOtp({required String email, required bool isWeb});
 
   /// Recover session from deep links.
-  Future<AuthenticationStatus?> handleDeeplink(String path);
+  Future<User?> handleDeeplink(String path);
 
   /// Recover/refresh session if it's available.
-  AuthenticationStatus recoverSession();
+  User? recoverSession();
 
   /// Method to do sign out.
   Future<void> signOut();
 }
 
-class SignInException implements Exception {
+abstract class SessionException implements Exception {
   @override
-  String toString() => 'An error occurred while signing in.';
+  String toString() => '$runtimeType';
 }
+
+class SignInException implements SessionException {}
