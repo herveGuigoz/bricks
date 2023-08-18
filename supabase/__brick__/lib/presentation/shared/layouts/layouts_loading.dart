@@ -8,7 +8,7 @@ class LoadingLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Material(
-      child:  Center(
+      child: Center(
         child: CircularProgressIndicator.adaptive(),
       ),
     );
