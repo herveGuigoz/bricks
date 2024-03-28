@@ -1,2 +1,4 @@
-/generated
-.DS_Store
+# Files and directories created by mason
+.mason/
+mason-lock.json
+output/
