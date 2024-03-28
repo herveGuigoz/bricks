@@ -1,0 +1,11 @@
+name: readme
+description: A new brick created with the Mason CLI.
+version: 0.1.0
+environment:
+  mason: ">=0.1.0-dev.52 <0.1.0"
+vars:
+  name:
+    type: string
+    description: The project name
+    default: Dash
+    prompt: What is your project name?

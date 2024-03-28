@@ -11,10 +11,10 @@ analyzer:
     record_literal_one_positional_no_trailing_comma: error
 
   exclude:
-    - bricks/**
+    - form/**
+    - freezed/**
     - cubit/**
     - supabase/**
-    - freezed/**
 
 linter:
   rules:
