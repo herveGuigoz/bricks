@@ -6,3 +6,14 @@ version: 0.1.0+1
 environment:
   mason: ">=0.1.0-dev.47 <0.1.0"
 
+vars:
+  styles:
+    type: array
+    defaults: [Docker]
+    description: The type of Makefile to generate.
+    prompt: What type of Makefile would you like to generate?
+    values:
+      - Docker
+      - Symfony
+      - Flutter
+

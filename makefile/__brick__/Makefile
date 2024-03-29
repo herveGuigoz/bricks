@@ -1,16 +1,52 @@
 # Executables
-FLUTTER	 = flutter
-DART	 = dart
-SCRCPY	 = scrcpy
+{{#docker}}
+DOCKER_COMP = docker compose
+{{/docker}}
+{{#flutter}}
+FLUTTER	 	= flutter
+DART	 	= dart
+SCRCPY	 	= scrcpy
+{{/flutter}}
+{{#symfony}}
+PHP_CONT = $(DOCKER_COMP) exec php
+PHP      = $(PHP_CONT) php
+COMPOSER = $(PHP_CONT) composer
+SYMFONY  = $(PHP) bin/console
+{{/symfony}}
+{{#docker}}
+# Variables
+SERVICE ?= $(shell bash -c 'read -p "Service: " service; echo $$service')
+{{/docker}}
 
 # Misc
 .DEFAULT_GOAL = help
-.PHONY        : help build up start down logs sh composer vendor sf cc
+.PHONY        : help {{#docker}}build up down reset recreate logs sh{{/docker}}{{#flutter}}dependencies format analyze test devtools outdated run generate mirror record{{/flutter}}{{#symfony}} composer vendor sf cc{{/symfony}}
 
-## —— The Dart Makefile ——————————————————————————————————
-help: ## Outputs this help screen
-	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
+{{#docker}}
+## —— Docker ————————————————————————————————————————————————————————————————
+build: ## Builds the Docker images
+	@$(DOCKER_COMP) build --pull --no-cache
 
+up: ## Start the docker hub in detached mode (no logs)
+	@$(DOCKER_COMP) up --detach
+
+down: ## Stop the docker hub
+	@$(DOCKER_COMP) down --remove-orphans
+
+reset: ## Stops the docker hub and deletes all its data including all images
+	@$(DOCKER_COMP) down --remove-orphans --volumes --rmi all
+
+recreate: ## Recreate a service
+	@$(DOCKER_COMP) up --detach --force-recreate --no-deps $(SERVICE)
+
+logs: ## Show live logs
+	@$(DOCKER_COMP) logs --tail=0 --follow
+
+sh: ## Connect to the service container
+	@$(DOCKER_COMP) exec $(SERVICE) sh
+{{/docker}}
+
+{{#flutter}}
 ## —— Flutter ————————————————————————————————————————————————————————————————
 dependencies: ## Update dependencies
 	@$(FLUTTER) pub get
@@ -42,3 +78,23 @@ mirror: ## Mirror screen with scrcpy
 
 record: ## Record screen with scrcpy
 	@$(SCRCPY) scrcpy --max-size 1024 --record "$(shell date +%Y%m%d-%H%M%S).mp4"
+{{/flutter}}
+
+{{#symfony}}
+## —— Composer ——————————————————————————————————————————————————————————————
+composer: ## Run composer, pass the parameter "c=" to run a given command, example: make composer c='req symfony/orm-pack'
+	@$(eval c ?=)
+	@$(COMPOSER) $(c)
+
+vendor: ## Install vendors according to the current composer.lock file
+vendor: c=install --prefer-dist --no-dev --no-progress --no-scripts --no-interaction
+vendor: composer
+
+## —— Symfony ———————————————————————————————————————————————————————————————
+sf: ## List all Symfony commands or pass the parameter "c=" to run a given command, example: make sf c=about
+	@$(eval c ?=)
+	@$(SYMFONY) $(c)
+
+cc: c=c:c ## Clear the cache
+cc: sf
+{{/symfony}}
