@@ -1,5 +1,5 @@
-name: refine_ressource
-description: A new brick created with the Mason CLI.
+name: fastapi
+description: A FastAPI brick for Mason
 
 # The following defines the brick repository url.
 # Uncomment and update the following line before publishing the brick.
@@ -13,7 +13,7 @@ version: 0.1.0+1
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
 environment:
-  mason: ">=0.1.0-dev.50 <0.1.0"
+  mason: ">=0.1.0-dev.52 <0.1.0"
 
 # Variables specify dynamic values that your brick depends on.
 # Zero or more variables can be specified for a given brick.
