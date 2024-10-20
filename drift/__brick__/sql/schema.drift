@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS documents (
+    name TEXT UNIQUE NOT NULL PRIMARY KEY,
+    data TEXT NOT NULL,
+    ttl INTEGER,
+    created INTEGER NOT NULL DEFAULT (unixepoch()),
+    updated INTEGER NOT NULL DEFAULT (unixepoch())
+);

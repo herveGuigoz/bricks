@@ -12,6 +12,10 @@ bricks:
   readme:
     path: readme
   supabase:
-    path: supabase  
+    path: supabase
   vscode:
     path: vscode
+  drift:
+    path: drift
+  pocketbase:
+    path: pocketbase

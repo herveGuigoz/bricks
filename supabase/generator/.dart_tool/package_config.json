@@ -14,7 +14,10 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-08-14T08:05:33.520666Z",
+  "generated": "2024-10-05T09:20:43.142538Z",
   "generator": "pub",
-  "generatorVersion": "3.0.6"
+  "generatorVersion": "3.5.3",
+  "flutterRoot": "file:///Users/herveguigoz/fvm/versions/stable",
+  "flutterVersion": "3.24.3",
+  "pubCache": "file:///Users/herveguigoz/.pub-cache"
 }

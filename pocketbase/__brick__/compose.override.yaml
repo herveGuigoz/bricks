@@ -1,0 +1,9 @@
+services:
+  {{name.paramCase()}}:
+    build:
+      context: ./{{name.paramCase()}}
+    ports:
+      - target: 8080
+        published: ${HTTP_PORT:-8080}
+        protocol: tcp
+    

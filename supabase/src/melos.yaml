@@ -1,0 +1,58 @@
+name: app_name
+
+packages:
+  - packages/**
+  - .
+
+command:
+  bootstrap:
+    # It seems so that running "pub get" in parallel has some issues (like
+    # https://github.com/dart-lang/pub/issues/3404). Disabling this feature
+    # makes the CI much more stable.
+    runPubGetInParallel: false
+    environment:
+      sdk: 3.5.3
+      flutter: 3.24.3
+    dependencies:
+      equatable: ^2.0.5
+      intl: ^0.19.0
+      json_annotation: ^4.9.0
+      rxdart: ^0.27.5
+    dev_dependencies:
+      build_runner: ^2.4.12
+      json_serializable: ^6.8.0
+      mocktail: ^1.0.4
+      test: ^1.25.2
+  clean:
+    hooks:
+      post: rm pubspec.lock
+
+scripts:
+  format:
+    name: format
+    description: Formats the code of all packages
+    run: melos exec -c 1 -- dart format --fix -l 120 lib
+  
+  generate:
+    name: generate
+    description: Generates the code of all packages
+    run: melos exec -c 1 --depends-on="build_runner" -- dart run build_runner build --delete-conflicting-outputs
+
+  analyze:
+    name: analyze
+    description: Run `dart analyze` in all packages.
+    run: melos exec -c 1 -- dart analyze . --fatal-infos
+
+  test:
+    name: test
+    description: Runs the tests of all packages
+    run: melos exec -c 1 --dir-exists=test --fail-fast -- flutter test --no-pub --coverage --test-randomize-ordering-seed random
+  
+  coverage:
+    name: coverage
+    description: Merge all packages coverage tracefiles ignoring data related to generated files.
+    run: >
+      coverde rm MELOS_ROOT_PATH/coverage/merged.lcov.info &&
+      melos exec --file-exists=coverage/lcov.info -- "coverde filter --input ./coverage/lcov.info --output MELOS_ROOT_PATH/coverage/merged.lcov.info --paths-parent MELOS_PACKAGE_PATH --filters '\.g\.dart'" &&
+      genhtml MELOS_ROOT_PATH/coverage/merged.lcov.info -o MELOS_ROOT_PATH/coverage/html &&
+      open MELOS_ROOT_PATH/coverage/html/index.html
