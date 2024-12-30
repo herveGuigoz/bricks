@@ -1,4 +1,4 @@
-name: pocketbase
+name: assets
 description: A new brick created with the Mason CLI.
 
 # The following defines the brick repository url.
@@ -26,8 +26,8 @@ environment:
 #  * a list of values (enums only)
 #  * an optional separator (list only)
 vars:
-  name:
+  directory:
     type: string
-    description: Your name
-    default: pocketbase
-    prompt: What is your name?
+    description: The path to the assets directory.
+    default: assets
+    prompt: "What is the path to the assets directory?"

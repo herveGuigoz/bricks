@@ -1,4 +1,6 @@
 bricks:
+  assets:
+    path: assets
   fastapi:
     path: fastapi
   form:
