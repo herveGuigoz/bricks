@@ -1,0 +1,9 @@
+services:
+  {{name.paramCase()}}:
+    image: ${IMAGES_PREFIX:-}{{name.paramCase()}}
+    restart: unless-stopped
+    volumes:
+      - ./{{name.paramCase()}}/pb_data:/pb/pb_data
+      - ./{{name.paramCase()}}/pb_migrations:/pb/pb_migrations
+      - ./{{name.paramCase()}}/pb_hooks:/pb/pb_hooks
+    

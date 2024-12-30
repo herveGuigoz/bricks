@@ -1,0 +1,16 @@
+services:
+  {{name.paramCase()}}:
+    build:
+      context: ./{{name.paramCase()}}
+    networks:
+      - lan
+    labels:
+      traefik.enable: true
+      traefik.http.services.{{name.paramCase()}}.loadbalancer.server.port: 8080
+      traefik.http.routers.{{name.paramCase()}}-https.rule: Host(`${SERVER_NAME}`)
+      traefik.http.routers.{{name.paramCase()}}-https.entrypoints: https
+      traefik.http.routers.{{name.paramCase()}}-https.service: {{name.paramCase()}}
+
+networks:
+  lan:
+    external: true

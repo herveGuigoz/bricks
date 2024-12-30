@@ -1,15 +1,23 @@
 bricks:
-  supabase:
-    path: supabase
+  assets:
+    path: assets
+  fastapi:
+    path: fastapi
   form:
     path: form
   freezed:
     path: freezed
-  refine_ressource:
-    path: refine/ressource
+  makefile:
+    path: makefile
   nestjs:
     path: nestjs
   readme:
     path: readme
+  supabase:
+    path: supabase
   vscode:
     path: vscode
+  drift:
+    path: drift
+  pocketbase:
+    path: pocketbase

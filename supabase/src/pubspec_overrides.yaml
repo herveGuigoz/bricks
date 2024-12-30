@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: api_client
+dependency_overrides:
+  api_client:
+    path: packages/api_client

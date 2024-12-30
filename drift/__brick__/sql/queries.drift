@@ -1,0 +1,37 @@
+import 'schema.drift';
+
+insert:
+    INSERT OR REPLACE 
+    INTO documents (name, data, ttl, updated) 
+    VALUES (:name, :data, :ttl, unixepoch())
+    RETURNING *;
+
+read: 
+    SELECT * FROM documents
+    WHERE name = :name
+    AND (
+        (ttl IS NOT NULL AND ttl + updated < unixepoch())
+        OR
+        ttl IS NULL
+    );
+
+find:
+    SELECT *
+    FROM documents
+    WHERE name LIKE :prefix
+    AND (
+        (ttl IS NOT NULL AND ttl + updated < unixepoch())
+        OR
+        ttl IS NULL
+    )
+    ORDER BY created;
+
+remove:
+    DELETE FROM documents
+    WHERE name = :name
+    RETURNING *;
+
+clear:
+    DELETE FROM documents
+    WHERE ttl IS NOT NULL
+    AND ttl + updated < unixepoch();

@@ -1,4 +1,4 @@
-name: nestjs
+name: assets
 description: A new brick created with the Mason CLI.
 
 # The following defines the brick repository url.
@@ -26,8 +26,8 @@ environment:
 #  * a list of values (enums only)
 #  * an optional separator (list only)
 vars:
-  name:
+  directory:
     type: string
-    description: The resource name
-    default: User
-    prompt: What is the resource name?
+    description: The path to the assets directory.
+    default: assets
+    prompt: "What is the path to the assets directory?"

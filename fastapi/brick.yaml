@@ -1,5 +1,5 @@
-name: nestjs
-description: A new brick created with the Mason CLI.
+name: fastapi
+description: A FastAPI brick for Mason
 
 # The following defines the brick repository url.
 # Uncomment and update the following line before publishing the brick.
@@ -28,6 +28,6 @@ environment:
 vars:
   name:
     type: string
-    description: The resource name
-    default: User
-    prompt: What is the resource name?
+    description: Your name
+    default: Dash
+    prompt: What is your name?

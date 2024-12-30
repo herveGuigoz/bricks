@@ -1,4 +1,4 @@
-name: refine_ressource
+name: pocketbase
 description: A new brick created with the Mason CLI.
 
 # The following defines the brick repository url.
@@ -13,7 +13,7 @@ version: 0.1.0+1
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
 environment:
-  mason: ">=0.1.0-dev.50 <0.1.0"
+  mason: 0.1.0
 
 # Variables specify dynamic values that your brick depends on.
 # Zero or more variables can be specified for a given brick.
@@ -29,5 +29,5 @@ vars:
   name:
     type: string
     description: Your name
-    default: Dash
+    default: pocketbase
     prompt: What is your name?
