@@ -1,0 +1,9 @@
+name: root
+publish_to: none
+
+environment:
+  sdk: ^3.9.2
+
+workspace:
+  - assets/hooks
+  - makefile/hooks
