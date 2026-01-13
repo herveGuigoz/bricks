@@ -66,7 +66,7 @@ class SessionRepository extends AbstractRepository implements SessionRepositoryI
     final uri = Uri.parse(path.replaceFirst('#', '?'));
     final params = uri.queryParameters;
 
-    if (params case {'access_token': final String refreshToken, 'refresh_token': final String accessToken}) {
+    if (params case {'access_token': final String accessToken, 'refresh_token': final String refreshToken}) {
       await saveCredentials((accessToken, refreshToken));
       return findMe();
     }
